@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]  # Build system requirements (setuptools for now)
+build-backend = "setuptools.build_meta"  # Tells setuptools to use modern metadata
+
+[project]
+name = "HIL-toolkit"  # Project name
+version = "0.1.0"
+authors = [
+    { name = "Prakyath Kantharaju" },  # Author information (can have more details)
+]
+description = "A toolkit for HIL optimization for robotics exoskeleton and prosthesis optimization"
+readme = "README.md"  # Location of your project's README file
+requires-python = ">=3.8"  # Minimum Python version required
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",  # (or your actual license)
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy >= 1.23", # Ensure to provide versions of the packages
+    "matplotlib >= 3.5",
+    "torch >= 1.12",
+    "botorch >= 0.8"
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+dev = [
+    "black>=22.0",
+    "sphinx>=4.0",
+    "sphinx-rtd-theme>=1.0",
+    "myst-parser>=0.15",
+    "sphinx-autodoc-typehints>=1.12",
+]
