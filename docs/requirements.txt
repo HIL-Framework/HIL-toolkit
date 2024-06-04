@@ -1,0 +1,11 @@
+    "black>=22.0",
+    "sphinx>=4.0",
+    "sphinx-rtd-theme>=1.0",
+    "myst-parser>=0.15",
+    "sphinx-autodoc-typehints>=1.12",
+    "ipython",
+    "sphinxemoji",
+    "sphinx_copybutton",
+    "myst_nb",
+    "nbsphinx",
+    "sphinx_book_theme"
