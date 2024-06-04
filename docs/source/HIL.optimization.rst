@@ -12,6 +12,22 @@ HIL.optimization.BO module
    :undoc-members:
    :show-inheritance:
 
+HIL.optimization.HIL module
+---------------------------
+
+.. automodule:: HIL.optimization.HIL
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+HIL.optimization.extract\_cost module
+-------------------------------------
+
+.. automodule:: HIL.optimization.extract_cost
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 HIL.optimization.kernel module
 ------------------------------
 

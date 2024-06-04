@@ -14,17 +14,19 @@ sys.path.insert(0, os.path.abspath("../.."))
 
 
 
-# project = 'HIL'
-# copyright = '2022, Prakyath Kantharaju'
-# author = 'Prakyath Kantharaju'
-# release = '0.0.1'
+project = 'HIL'
+copyright = '2022, Prakyath Kantharaju'
+author = 'Prakyath Kantharaju'
+release = '0.1.0'
 
 # # -- General configuration ---------------------------------------------------
 # # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-# extensions = [ 'sphinx.ext.napoleon', 'myst_parser',     'sphinx.ext.duration',
-#     'sphinx.ext.doctest',
-#     'sphinx.ext.autodoc' ]
+# extensions = [ 'sphinx.ext.napoleon', 'myst_parser', 'sphinx.ext.duration',
+#     'sphinx.ext.doctest', 'sphinx.ext.autodoc', 'sphinx.ext.autosectionlabel',
+#     'sphinx.ext.viewcode', 'IPython.sphinxext.ipython_console_highlighting',
+#     'IPython.sphinxext.ipython_directive', 'sphinxemoji.sphinxemoji',
+#     'sphinx_copybutton', 'myst_nb', 'nbsphinx' ]
 
 # templates_path = ['_templates']
 # exclude_patterns = []
@@ -94,12 +96,12 @@ nitpicky = False  # Set to True to get all warnings about crosslinks
 autosectionlabel_prefix_document = True
 
 # -- Options for autodoc -------------------------------------------------
-napoleon_google_docstring = False
-napoleon_numpy_docstring = True
-napoleon_use_param = False
-napoleon_use_ivar = False
-napoleon_use_rtype = False
-add_module_names = False  # If true, the current module name will be prepended to all description
+napoleon_google_docstring = True
+# napoleon_numpy_docstring = True
+# napoleon_use_param = False
+# napoleon_use_ivar = False
+# napoleon_use_rtype = False
+# add_module_names = False  # If true, the current module name will be prepended to all description
 
 # -- Options for ipython directive  ----------------------------------------
 
@@ -126,14 +128,14 @@ nb_execution_raise_on_error = True
 
 html_theme = "sphinx_book_theme"
 
-# https://sphinx-book-theme.readthedocs.io/en/latest/customize/index.html
-html_theme_options = {
-    "repository_url": "https://127.0.0.1:6006",
-    "repository_branch": "dev",  # TODO: remove this before merging
-    "use_repository_button": True,
-    "use_issues_button": True,
-    "path_to_docs": "docs/",
-    "use_edit_page_button": True,
-    "logo_only": True,
-    "show_toc_level": 1,
-}
+# # https://sphinx-book-theme.readthedocs.io/en/latest/customize/index.html
+# html_theme_options = {
+#     "repository_url": "https://127.0.0.1:6006",
+#     "repository_branch": "dev",  # TODO: remove this before merging
+#     "use_repository_button": True,
+#     "use_issues_button": True,
+#     "path_to_docs": "docs/",
+#     "use_edit_page_button": True,
+#     "logo_only": True,
+#     "show_toc_level": 1,
+# }
