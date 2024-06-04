@@ -15,8 +15,10 @@ jobs:
         python-version: 3.11
     - name: Install dependencies
       run: pip install -r docs/requirements.txt
+    - name: sphinx-apidoc
+      run: cd docs && sphinx-apidoc -o source/ ../HIL
     - name: Build HTML
-      uses: ammaraskar/sphinx-action@master
+      run: cd docs && make html
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
