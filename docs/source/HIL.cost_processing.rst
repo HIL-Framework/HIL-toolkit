@@ -8,7 +8,7 @@ Subpackages
    :maxdepth: 4
 
    HIL.cost_processing.ECG
-   HIL.cost_processing.utils
+   HIL.cost_processing.metabolic_cost
 
 Module contents
 ---------------
