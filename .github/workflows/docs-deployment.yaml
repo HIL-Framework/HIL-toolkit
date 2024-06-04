@@ -37,9 +37,15 @@ jobs:
         run: |
           cd docs
           make html
+      
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/build/html  # Ensure this matches your Sphinx output directory
+      
+      - name: show deploy status and location
+        run: |
+        
+          
