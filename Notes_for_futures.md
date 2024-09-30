@@ -1,0 +1,1 @@
+- Should we move from UDP communication to API based communication using fastAPI ? what would be the benefits and drawbacks?
