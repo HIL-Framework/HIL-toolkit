@@ -1,5 +1,6 @@
 import socket
 import select
+from typing import Any
 import logging
 
 
@@ -22,6 +23,7 @@ class _UDP():
         # setup the communication
         self.sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.setblocking(0) #type: ignore
         self.port = port
         self.ip = ip
@@ -31,7 +33,7 @@ class _UDP():
             self.sock.settimeout(timeout)
             self.select = select.select([],[self.sock], [], timeout + 0.5)
 
-    def send(self, i):
+    def send(self, i: Any) -> None:
         """
         Send the message by encode the string to bytes
 
@@ -41,19 +43,19 @@ class _UDP():
         MESSAGE = str(i).encode('utf-8')
         self.sock.sendto(MESSAGE, (self.ip,self.port ))
 
-    def close(self):
+    def close(self) -> None:
         """
         Close the socket
         """
         logging.warning('closing the socket')
         self.sock.close()
     
-    def receive(self):
+    def receive(self) -> Any:
         """
-        Receive the message from the socket
+        Receive the latest message from the socket by clearing the buffer.
 
         Returns:
-        data (str): Message received
+            str | None: The last received message or None if no data is received.
         """
         data = None
         try:
@@ -61,9 +63,9 @@ class _UDP():
                 data = self.sock.recv(1024) # buffer size is 1024 bytes
                 while data != None:
                     data = self.sock.recv(1024) # buffer size is 1024 bytes
-                    self._logger.info(data.decode(), 'recieved')
-                    new_data = data.decode()
-                data = new_data #type: ignore
-        except Exception as e:
-            self._logger.info(f'Error in receiving the data: {e}')
+                    self._logger.info(f'{data.decode()} recieved in the loop')
+                    # new_data = data
+                # data = new_data #type: ignore
+        except TimeoutError:
+            self._logger.info('timeout, in receive so exiting')
         return data

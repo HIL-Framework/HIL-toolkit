@@ -1,9 +1,4 @@
-import socket,logging,time,select
-import numpy as np
-import matplotlib.pyplot as plt
-from signal import SIGINT, signal
-from sys import exit
-import time, logging
+import logging
 from HIL.Exo_communication.utils import _UDP
 
 # object to create and initialize the hander class for sending
@@ -59,7 +54,7 @@ class UDPSend(object):
         """
         self._prediction.send(prediction)
 
-    def send_stopping(self, stoping:float) -> None:
+    def send_stopping(self, stoping:bool) -> None:
         """
         Send the stopping data to the exoskeleton
 
@@ -77,7 +72,7 @@ class UDPSend(object):
 
 
 class UDPReceive(object):
-    def __init__(self, target_ip = 'localhost', port = 30005):
+    def __init__(self, target_ip = 'localhost', port = 30005) -> None:
         """
         UDP communication class to receive the data from the exoskeleton
 
@@ -89,15 +84,14 @@ class UDPReceive(object):
         self._logger = logging.Logger(__name__)
 
 
-    def receive(self):
+    def receive_stop(self) -> bool:
         """
-        Receive the stopping data from the exoskeleton
+        Receive the data from the exoskeleton and see if it is a stop signal then return True else False
 
         Returns:
         data (str): Stopping data
         """
         data = self._receiving.receive()
-        self._logger.info(f'received data: {data}')
         if type(data) != type(None):
             self._logger.info(f'received data: {data}')
             return True
@@ -105,7 +99,22 @@ class UDPReceive(object):
             self._logger.info(f'no data received')
             return False
 
-    def close(self):
+    def receive_pred(self) -> float | None:
+        """
+        Receive the prediction data from the exoskeleton
+
+        Returns:
+        data (float): Prediction data
+        """
+        data = self._receiving.receive()
+        if type(data) != type(None):
+            self._logger.info(f'received data: {data}')
+            return float(data) # convert bytes to float # type: ignore
+        else:
+            self._logger.info(f'no data received')
+            return None
+
+    def close(self) -> None:
         """
         Close the socket
         """
@@ -118,19 +127,19 @@ class UDPReceive(object):
 
 
 
-# simple script to test the communication
-if __name__ == "__main__":
-    MESSAGE = b'test'
-    sock = socket.socket(socket.AF_INET, # Internet
-                     socket.SOCK_DGRAM) # UDP
-    sock.sendto(MESSAGE, ('localhost', 5005))
-    an = _UDP()
-    i = 1
-    communication = UDPSend()
-    while i < 10000:
-        i += 1
-        communication.send_pred(i)
-        time.sleep(1)
-        print(i)
-    an.close()
+# # simple script to test the communication
+# if __name__ == "__main__":
+#     MESSAGE = b'test'
+#     sock = socket.socket(socket.AF_INET, # Internet
+#                      socket.SOCK_DGRAM) # UDP
+#     sock.sendto(MESSAGE, ('localhost', 5005))
+#     an = _UDP()
+#     i = 1
+#     communication = UDPSend()
+#     while i < 10000:
+#         i += 1
+#         communication.send_pred(i)
+#         time.sleep(1)
+#         print(i)
+#     an.close()
 
