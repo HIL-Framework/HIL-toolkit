@@ -65,11 +65,14 @@ class HIL:
         Args:
             args (dict): Optimization args
         """
-        print(args['range'][0], args['range'][1])
-        print(np.array(list(args['range'])))
+        # print(args['range'][0], args['range'][1])
+        # print(np.array(list(args['range'])))
+        # print(args['kernel_parms'])
         self.BO = BayesianOptimization(n_parms=args['n_parms'], 
                 range=np.array(list(args['range'])), 
-                model_save_path=args['model_save_path'])
+                model_save_path=args['model_save_path'], 
+                kernel=args['kernel_function'],
+                kernel_parms=args['kernel_parms'])
 
     def _start_cost(self, args: dict) -> None:
         """Start the cost extraction module

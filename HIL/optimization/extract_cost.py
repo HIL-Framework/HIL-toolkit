@@ -13,7 +13,7 @@ class ExtractCost:
         # check the if the can cost is streaming
         COST_PRESENT = self._check_cost()
         if not COST_PRESENT:
-            raise NameError
+            raise NameError("Cost function not found")
         self._setup_stream(number_samples)
 
         # self._setup_cost_stream(max_duration)

@@ -23,22 +23,26 @@ class kernel(ABC):
     def get_covr_module(self) -> Any:
         raise NotImplementedError
 
+    @abstractmethod
+    def reset(self) -> None:
+        raise NotImplementedError
 
 class SE(kernel):
-    def __init__(self, n_parms: int = 1,  length_scale : tuple[int, ...] = (0, 10), variance_constraints: tuple[int, ...] = (0, 10) )-> None :
+    def __init__(self, n_parms: int = 1,  length_scale : tuple[float, ...] = (0, 10), variance_constraints: tuple[float, ...] = (0, 10) )-> None :
         """
         SE kernel
         parms:
             n_parms: int = 1, number of optimization parameters
-            length_scale: tuple[int, int] = (0, 10) length scale constraints
-            variance_constraints: tuple[int, int] = (0, 10) variance_constraints
+            length_scale: tuple[float, float] = (0, 10) length scale constraints
+            variance_constraints: tuple[float, float] = (0, 10) variance_constraints
         Call
         SE.get_covr_module() to get the covar_module
         """
         super().__init__()
+        self.kernel_name = "SE"
         self.n_parms = n_parms
-        self.length_scale_constraints = Interval(length_scale[0], length_scale[1]) #type: ignore
-        self.output_constraints = Interval(variance_constraints[0], variance_constraints[1]) #type: ignore
+        self.length_scale_constraints = Interval(length_scale[0], length_scale[1])
+        self.output_constraints = Interval(variance_constraints[0], variance_constraints[1]) 
         self.covar_module = ScaleKernel(RBFKernel(ard_num_dims=n_parms,lengthscale_constraint= self.length_scale_constraints), outputscale_constraint=self.output_constraints)
 
     def get_covr_module(self) -> Any:
@@ -54,20 +58,21 @@ class SE(kernel):
     
 
 class Matern(kernel):
-    def __init__(self, n_parms: int = 2,  length_scale : tuple[int, ...] = (0, 10), variance_constraints: tuple[int, ...] = (0, 10) )-> None :
+    def __init__(self, n_parms: int = 2,  length_scale : tuple[float, ...] = (0, 10), variance_constraints: tuple[float, ...] = (0, 10) )-> None :
         """
         SE kernel
         parms:
-            length_scale: tuple[int, int] = (0, 10) length scale constraints
-            variance_constraints: tuple[int, int] = (0, 10) variance_constraints
+            length_scale: tuple[float, float] = (0, 10) length scale constraints
+            variance_constraints: tuple[float, float] = (0, 10) variance_constraints
         Call
         SE.get_covr_module() to get the covar_module
         """
         super().__init__()
+        self.kernel_name = "Matern"
         self.n_parms = n_parms
         self.length_scale_constraints = Interval(length_scale[0], length_scale[1]) #type: ignore
         self.variance_constraints = Interval(variance_constraints[0], variance_constraints[1]) #type: ignore
-        self.covar_module = ScaleKernel(RBFKernel(ard_num_dims = self.n_parms, lengthscale_constraint= self.length_scale_constraints), outputscale_constraint=self.variance_constraints)
+        self.covar_module = ScaleKernel(MaternKernel(ard_num_dims = self.n_parms, lengthscale_constraint= self.length_scale_constraints), outputscale_constraint=self.variance_constraints)
 
     def get_covr_module(self) -> Any:
         """
@@ -76,7 +81,5 @@ class Matern(kernel):
         return self.covar_module
 
     def reset(self) -> None:
-        # self.length_scale_constraints = Interval(length_scale[0], length_scale[1]) #type: ignore
-        # self.variance_constraints = Interval(variance_constraints[0], variance_constraints[1]) #type: ignore
-        self.covar_module = ScaleKernel(RBFKernel(ard_num_dims = self.n_parms, lengthscale_constraint= self.length_scale_constraints), outputscale_constraint=self.variance_constraints)
+        self.covar_module = ScaleKernel(MaternKernel(ard_num_dims = self.n_parms, lengthscale_constraint= self.length_scale_constraints), outputscale_constraint=self.variance_constraints)
 

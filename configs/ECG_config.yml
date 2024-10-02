@@ -17,6 +17,10 @@ Optimization:
   acquisition: 'qei'
   kernel_function: 'se'
   GP: "Regular"
+  kernel_parms:
+    n_parms: 1
+    length_scale: [1, 1]
+    variance_constraints: [1, 1]
 
 Exoskeleton: 
   port: 5555
