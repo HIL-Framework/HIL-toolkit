@@ -1,7 +1,8 @@
 import math
 import os
 import torch
-from botorch.models import SingleTaskGP, FixedNoiseGP
+from torch.optim import Adam # type: ignore
+from botorch.models import SingleTaskGP
 # from botorch.fit import fit_gpytorch_model
 from gpytorch.mlls import ExactMarginalLogLikelihood
 from botorch.acquisition import ExpectedImprovement, qExpectedImprovement, qNoisyExpectedImprovement
@@ -138,9 +139,9 @@ class BayesianOptimization(object):
         """
            
         parameter = list(model.parameters()) + list(likelihood.parameters())
-        optimizer = torch.optim.Adam(parameter, lr=0.01) 
+        optimizer = Adam(parameter, lr=0.01) 
         mll= ExactMarginalLogLikelihood(likelihood, model).to(train_x)
-        
+         
 
         train_y=train_y.squeeze(-1)
         loss = -mll(model(train_x), train_y) #type: ignore

@@ -22,11 +22,13 @@ dependencies = [
     "matplotlib >= 3.5",
     "torch >= 1.12",
     "botorch >= 0.8",
-    "pylsl"
+    "pylsl",
+    "bleak",
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=7.0", "pytest-cov"]
+test = ["pytest>=7.0", "pytest-cov", "pytest-asyncio"]
+    
 dev = [
     "black>=22.0",
     "sphinx>=4.0",
