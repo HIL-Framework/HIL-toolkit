@@ -21,7 +21,8 @@ dependencies = [
     "numpy >= 1.23", # Ensure to provide versions of the packages
     "matplotlib >= 3.5",
     "torch >= 1.12",
-    "botorch >= 0.8"
+    "botorch >= 0.8",
+    "pylsl"
 ]
 
 [project.optional-dependencies]
