@@ -29,7 +29,7 @@ class HIL:
         self.args = args
 
         # start the
-        self.start_time = 0
+        self.start_time = 0 
 
         self._outlet_cost()
 
@@ -118,7 +118,7 @@ class HIL:
         self.x = np.concatenate((self.x, new_parameter.reshape(1,)), axis = 0)
         self.outlet.push_sample([self.x_opt[-1],self.y_opt[-1]])
 
-    def start(self):
+    def start_cli(self):
         if self.n == 0:
             print(f'############################################################')
             print(f'############## Starting the optimization ###################')
@@ -166,26 +166,11 @@ class HIL:
                             self._optimize_and_push()
 
 
-            # # Exploration is done and starting the optimization
-            # elif self.n == self.args['Optimization']['n_exploration'] and not self.OPTIMIZATION and self.STATE == STATE.EXPLORATION:
-            #     print(f" cost is {np.nanmean(self.store_cost_data[-5:])}")
-            #     out = input("Press Y to record the data: N to remove it:")
-            #     if out == 'N':
-            #         self._reset_data_collection()
-            #         print("################################")
-            #         print("########### recollecting #######")
-            #         print("################################")
-            #     else:
-            #         print(f"starting the optimization.")
-            #         print(f"recording cost function {self.y_opt}, for the parameter {self.x_opt}")
-            #         # self.optimize_and_push()
-            #         self.OPTIMIZATION = True
-            #         self.STATE = STATE.OPTIMIZATION
 
             if self.STATE == STATE.OPTIMIZATION:
                 print(f"In the optimization loop {self.n}, parameter {self.x[self.n]}")
                 self._get_cost()
-                if (self.cost_time - self.start_time) > self.args['Cost']['time']:
+                if self._check_time_based and self._check_cost_based:
                     out = input("Press Y to record the data: N to remove it:")
                     if out == 'N':
                         self._reset_data_collection()
@@ -199,14 +184,12 @@ class HIL:
                         self.n += 1
 
                         self._optimize_and_push()
-                        # print(f"recording cost function {self.y_opt[-1]}, for the parameter {self.x_opt[-1]}")
-                        # new_parameter = self.BO.run(self.x_opt.reshape(self.n, -1), self.y_opt.reshape(self.n, -1))
-                        # print(f"Next parameter is {new_parameter}")
-                        #TODO Need to save the parameters and data for each iteration
-                        # self.x = np.concatenate((self.x, new_parameter.reshape(1,)), axis = 0)
-                        # self.outlet.push_sample([self.x_opt[-1],self.y_opt[-1]])
                         self._reset_data_collection()
-                        input("Enter to contiue")
+            
+            if self.n == self.args['Optimization']['n_steps']:
+                self.STATE = STATE.DONE
+                print(f"Optimization is done")
+                break
                     
 
             time.sleep(self.args['Cost']['time_step'])
@@ -214,9 +197,6 @@ class HIL:
     def _generate_initial_parameters(self) -> None:
         opt_args = self.args['Optimization']
         self.x = np.random.random(opt_args['n_start_points'])*(opt_args['range'][1] - opt_args['range'][0]) + opt_args['range'][0]
-        # self.x[0]=35.0
-        # self.x[1]=75.0
-        # self.x[2]=10.0
         print(f'###### start functions are {self.x} ######') 
         
         

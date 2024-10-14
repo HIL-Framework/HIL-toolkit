@@ -9,7 +9,7 @@ def args():
             'n_parms': 1,
             'range': [0, 100],
             'model_save_path': 'test_path/',
-            'n_steps': 10,
+            'n_steps': 7,
             'n_exploration': 5,
             'n_start_points': 3,
             'device': 'cpu',

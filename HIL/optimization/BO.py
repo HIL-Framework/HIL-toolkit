@@ -162,19 +162,15 @@ class BayesianOptimization(object):
         Returns:
             Tuple[torch.tensor, torch.tensor]: next parmaeter, value at the point
         """
-        # tradition method
-        # mll = ExactMarginalLogLikelihood(self.likelihood, self.model)
-        # fit_gpytorch_model(mll) # check I need to change anything
-        # using manual gradient descent using adam optimizer.
         self._training(self.model, self.likelihood, self.x, self.y)
 
         if self.acq_type == "ei":
-            acq = qNoisyExpectedImprovement(self.model, self.x, sampler=IIDNormalSampler(self.N_POINTS, seed = 1234)) #type: ignore
+            acq = qNoisyExpectedImprovement(self.model, self.x, sampler=IIDNormalSampler(torch.Size([self.N_POINTS]), seed=1234)) #type: ignore
         else:
             # TODO add other acquisition functions
             best_f = self._get_data_best()
-            acq = ProbabilityOfImprovement(self.model, best_f, sampler=IIDNormalSampler(self.N_POINTS, seed = 1234)) #type: ignore
-            pass
+            acq = ProbabilityOfImprovement(self.model, best_f, sampler=IIDNormalSampler(torch.Size([self.N_POINTS]), seed=1234)) #type: ignore
+
         new_point, value  = optimize_acqf(
             acq_function = acq,
             bounds=torch.tensor(self.range).to(self.device),
