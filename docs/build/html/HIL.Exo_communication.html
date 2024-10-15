@@ -18,32 +18,32 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=a1637f0b"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'HIL.Exo_communication';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -124,6 +124,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="index.html">
   
@@ -139,7 +141,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -154,7 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modules/optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modules/cost-acquisition.html">Cost acquisition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Modules/cost-estimation.html">Cost estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modules/cost-estimation.html">Cost Estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modules/exo-communication.html">EXO Communication</a></li>
 </ul>
 
@@ -185,9 +187,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -265,10 +267,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -276,14 +278,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -307,7 +309,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.Exo_communication.udp_communication">HIL.Exo_communication.udp_communication module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive"><code class="docutils literal notranslate"><span class="pre">UDPReceive</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive.receive"><code class="docutils literal notranslate"><span class="pre">UDPReceive.receive()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive.close"><code class="docutils literal notranslate"><span class="pre">UDPReceive.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive.receive_pred"><code class="docutils literal notranslate"><span class="pre">UDPReceive.receive_pred()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive.receive_stop"><code class="docutils literal notranslate"><span class="pre">UDPReceive.receive_stop()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPSend"><code class="docutils literal notranslate"><span class="pre">UDPSend</span></code></a><ul class="nav section-nav flex-column">
@@ -343,9 +347,26 @@ document.write(`
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HIL.Exo_communication.udp_communication.</span></span><span class="sig-name descname"><span class="pre">UDPReceive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30005</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPReceive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPReceive" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="HIL.Exo_communication.udp_communication.UDPReceive.receive">
-<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPReceive.receive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPReceive.receive" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="HIL.Exo_communication.udp_communication.UDPReceive.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPReceive.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPReceive.close" title="Link to this definition">#</a></dt>
+<dd><p>Close the socket</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HIL.Exo_communication.udp_communication.UDPReceive.receive_pred">
+<span class="sig-name descname"><span class="pre">receive_pred</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPReceive.receive_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPReceive.receive_pred" title="Link to this definition">#</a></dt>
+<dd><p>Receive the prediction data from the exoskeleton</p>
+<p>Returns:
+data (float): Prediction data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HIL.Exo_communication.udp_communication.UDPReceive.receive_stop">
+<span class="sig-name descname"><span class="pre">receive_stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPReceive.receive_stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPReceive.receive_stop" title="Link to this definition">#</a></dt>
+<dd><p>Receive the data from the exoskeleton and see if it is a stop signal then return True else False</p>
+<p>Returns:
+data (str): Stopping data</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -356,22 +377,33 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="HIL.Exo_communication.udp_communication.UDPSend.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPSend.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPSend.close" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Close the socket</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="HIL.Exo_communication.udp_communication.UDPSend.send_all">
-<span class="sig-name descname"><span class="pre">send_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stopping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPSend.send_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPSend.send_all" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">send_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stopping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPSend.send_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPSend.send_all" title="Link to this definition">#</a></dt>
+<dd><p>Send the prediction and stopping data to the exoskeleton</p>
+<p>Args:
+prediction (float): Prediction data
+stopping (float): Stopping data</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="HIL.Exo_communication.udp_communication.UDPSend.send_pred">
 <span class="sig-name descname"><span class="pre">send_pred</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPSend.send_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPSend.send_pred" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Send the prediction data to the exoskeleton</p>
+<p>Args:
+prediction (float): Prediction data</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="HIL.Exo_communication.udp_communication.UDPSend.send_stopping">
-<span class="sig-name descname"><span class="pre">send_stopping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stoping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPSend.send_stopping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPSend.send_stopping" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">send_stopping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stoping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/HIL/Exo_communication/udp_communication.html#UDPSend.send_stopping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.Exo_communication.udp_communication.UDPSend.send_stopping" title="Link to this definition">#</a></dt>
+<dd><p>Send the stopping data to the exoskeleton</p>
+<p>Args:
+stoping (float): Stopping data</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -411,7 +443,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.Exo_communication.udp_communication">HIL.Exo_communication.udp_communication module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive"><code class="docutils literal notranslate"><span class="pre">UDPReceive</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive.receive"><code class="docutils literal notranslate"><span class="pre">UDPReceive.receive()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive.close"><code class="docutils literal notranslate"><span class="pre">UDPReceive.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive.receive_pred"><code class="docutils literal notranslate"><span class="pre">UDPReceive.receive_pred()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPReceive.receive_stop"><code class="docutils literal notranslate"><span class="pre">UDPReceive.receive_stop()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.Exo_communication.udp_communication.UDPSend"><code class="docutils literal notranslate"><span class="pre">UDPSend</span></code></a><ul class="nav section-nav flex-column">
@@ -472,8 +506,8 @@ By Prakyath Kantharaju
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

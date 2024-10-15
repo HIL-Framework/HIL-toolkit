@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HIL.cost_processing.ECG.RMSSD &#8212; HIL 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/HIL/cost_processing/ECG/RMSSD';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">HIL 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../Introduction.html">Welcome to the HIL toolbox.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Modules/optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Modules/cost-acquisition.html">Cost acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Modules/cost-estimation.html">Cost Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Modules/exo-communication.html">EXO Communication</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for HIL.cost_processing.ECG.RMSSD</h1><div class="highlight"><pre>
+<span></span><span class="c1"># general imports</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">pylsl</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+
+<span class="c1"># processing</span>
+<span class="kn">import</span> <span class="nn">neurokit2</span> <span class="k">as</span> <span class="nn">nk</span>
+
+<span class="c1"># typing</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">HIL.cost_processing.utils.inlet</span> <span class="kn">import</span> <span class="n">InletOutlet</span>
+
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<div class="viewcode-block" id="RMSSDInOut">
+<a class="viewcode-back" href="../../../../HIL.cost_processing.ECG.html#HIL.cost_processing.ECG.RMSSD.RMSSDInOut">[docs]</a>
+<span class="k">class</span> <span class="nc">RMSSDInOut</span><span class="p">(</span><span class="n">InletOutlet</span><span class="p">):</span>
+    <span class="n">dtypes</span> <span class="o">=</span> <span class="p">[[],</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">pylsl</span><span class="o">.</span><span class="n">StreamInfo</span><span class="p">,</span> <span class="n">data_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">133</span><span class="p">,</span> <span class="n">skip_threshold</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Main class which handles the input of the ECG data and output of the rmssd data to the pylsl.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            info (pylsl.StreamInfo): information aboute the input stream</span>
+<span class="sd">            data_length (int): Data length to process to get the RMSSD, generally 1000 -&gt; ~9s considering 133 Hz sampling rate</span>
+<span class="sd">            sampling_rate (int, optional): Sampling rate of the signal. Defaults to 133.</span>
+<span class="sd">            skip_threshold (int, optional): This is the higher level threshold, above which RMSSD is not sent, (Generally standing threshold is picked). Defaults to 40.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">data_length</span><span class="p">)</span>
+        <span class="n">buffer_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">nominal_srate</span><span class="p">()</span> <span class="o">*</span> <span class="n">data_length</span><span class="p">),</span> <span class="n">info</span><span class="o">.</span><span class="n">channel_count</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">buffer_size</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtypes</span><span class="p">[</span><span class="n">info</span><span class="o">.</span><span class="n">channel_format</span><span class="p">()])</span>
+
+        <span class="c1"># placeholders</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">store_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="c1"># Information about the outlet stream</span>
+        <span class="n">info</span>  <span class="o">=</span> <span class="n">pylsl</span><span class="o">.</span><span class="n">StreamInfo</span><span class="p">(</span><span class="s1">&#39;ECG_processed&#39;</span><span class="p">,</span>  <span class="s1">&#39;Marker&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="s1">&#39;myuidw43537&#39;</span><span class="p">)</span> <span class="c1">#type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outlet</span> <span class="o">=</span> <span class="n">pylsl</span><span class="o">.</span><span class="n">StreamOutlet</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+        <span class="c1"># logging</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+
+        <span class="c1"># setting some large RMMSD value at the start.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_HR</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skip_threshold</span> <span class="o">=</span> <span class="n">skip_threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SAMPLING_RATE</span> <span class="o">=</span> <span class="n">sampling_rate</span>
+
+        <span class="c1"># Main processing class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rmssd</span> <span class="o">=</span> <span class="n">RMSSD</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">SAMPLING_RATE</span><span class="p">)</span>
+
+        <span class="c1"># flags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_data</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cleaned</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+
+<div class="viewcode-block" id="RMSSDInOut.get_data">
+<a class="viewcode-back" href="../../../../HIL.cost_processing.ECG.html#HIL.cost_processing.ECG.RMSSD.RMSSDInOut.get_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Class to get the ECG data and process it</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None: early return if the stream if not ECG</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">ts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inlet</span><span class="o">.</span><span class="n">pull_chunk</span><span class="p">(</span><span class="n">timeout</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> 
+                <span class="n">max_samples</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">dest_obj</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ts</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;polar ECG&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time stamp is: </span><span class="si">{</span><span class="n">ts</span><span class="si">}</span><span class="s2">, name of the stream: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="c1"># For first time</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_data</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">store_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ts</span><span class="o">.</span><span class="n">size</span><span class="p">,:]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">first_data</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">store_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">store_data</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ts</span><span class="o">.</span><span class="n">size</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rmssd</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">store_data</span><span class="p">)</span>
+            
+
+            <span class="c1"># check if there is a nan in the data</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">store_data</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span> <span class="c1">#type: ignore</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;nan found in data&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RMSSDInOut.send_data">
+<a class="viewcode-back" href="../../../../HIL.cost_processing.ECG.html#HIL.cost_processing.ECG.RMSSD.RMSSDInOut.send_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">send_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send the processed data to the pylsl</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">rmssd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rmssd</span><span class="o">.</span><span class="n">get_rmssd</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_HR</span> <span class="o">==</span> <span class="mi">1000</span><span class="p">:</span> <span class="c1"># this is the first</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">previous_HR</span> <span class="o">=</span> <span class="n">rmssd</span>
+
+        <span class="c1"># if len(self.cleaned) &lt; 2000: #type: ignore</span>
+        <span class="c1">#     self._logger.info(f&quot;Not enough clean data {len(self.cleaned)}&quot;) #type: ignore</span>
+        <span class="c1">#     return</span>
+
+        <span class="k">if</span> <span class="n">rmssd</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># something wrong with the data do not send</span>
+            <span class="k">return</span> 
+
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_threshold</span> <span class="o">&lt;</span> <span class="n">rmssd</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rmssd is greater than the threshold: </span><span class="si">{</span><span class="n">rmssd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">store_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">first_data</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">([</span><span class="n">rmssd</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_data</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending the RMSSD value </span><span class="si">{</span><span class="n">rmssd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="RMSSD">
+<a class="viewcode-back" href="../../../../HIL.cost_processing.ECG.html#HIL.cost_processing.ECG.RMSSD.RMSSD">[docs]</a>
+<span class="k">class</span> <span class="nc">RMSSD</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Main processing class for the RMSSD data</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            sampling_rate (int): Sampling rate of the data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SAMPLING_RATE</span> <span class="o">=</span> <span class="n">sampling_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cleaned</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        
+<div class="viewcode-block" id="RMSSD.add_data">
+<a class="viewcode-back" href="../../../../HIL.cost_processing.ECG.html#HIL.cost_processing.ECG.RMSSD.RMSSD.add_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add data which needs to processed</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (np.ndarray): The ECG data in the form of np.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span> <span class="o">=</span> <span class="n">data</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_clean_quality</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clean the data and perform a quality check</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cleaned</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">ecg_clean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[</span><span class="o">-</span><span class="mi">1000</span><span class="p">:],</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">SAMPLING_RATE</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">quality</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">ecg_quality</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cleaned</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;zhao&#39;</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">SAMPLING_RATE</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">quality</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">_process_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Process the cleaned data</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: RMSSD value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clean_quality</span><span class="p">()</span>
+        <span class="n">cleaned</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cleaned</span><span class="p">)</span>
+
+        <span class="n">peaks</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">ecg_peaks</span><span class="p">(</span><span class="n">cleaned</span><span class="p">,</span> <span class="n">sampling_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">SAMPLING_RATE</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">signal</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">hrv_time</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">SAMPLING_RATE</span><span class="p">,</span> <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="c1"># setting the new data</span>
+            <span class="k">return</span> <span class="n">signal</span><span class="p">[</span><span class="s1">&#39;HRV_RMSSD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<div class="viewcode-block" id="RMSSD.get_rmssd">
+<a class="viewcode-back" href="../../../../HIL.cost_processing.ECG.html#HIL.cost_processing.ECG.RMSSD.RMSSD.get_rmssd">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_rmssd</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send the processed RMSSD value&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_data</span><span class="p">()</span></div>
+</div>
+
+
+    
+<div class="viewcode-block" id="RMSSDFromStream">
+<a class="viewcode-back" href="../../../../HIL.cost_processing.ECG.html#HIL.cost_processing.ECG.RMSSD.RMSSDFromStream">[docs]</a>
+<span class="k">class</span> <span class="nc">RMSSDFromStream</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Class for getting RMSSD live from stream</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            config (dict): Configs parsed output of the yaml config files</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;RMSSD_config&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inlets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">InletOutlet</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">streams</span> <span class="o">=</span> <span class="n">pylsl</span><span class="o">.</span><span class="n">resolve_streams</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wait_time</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Pubrate&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">streams</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Stream_name&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Stream_name&#39;</span><span class="p">]:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inlets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RMSSDInOut</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Data_buffer_length&#39;</span><span class="p">],</span> 
+                        <span class="n">sampling_rate</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;Sampling_rate&#39;</span><span class="p">],</span> <span class="n">skip_threshold</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;Skip_threshold&#39;</span><span class="p">]))</span>
+
+<div class="viewcode-block" id="RMSSDFromStream.run">
+<a class="viewcode-back" href="../../../../HIL.cost_processing.ECG.html#HIL.cost_processing.ECG.RMSSD.RMSSDFromStream.run">[docs]</a>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Main run ( in the while loop )</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># This is the main while loop</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wait_time</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">inlet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">inlets</span><span class="p">:</span>
+                <span class="n">inlet</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+                <span class="c1"># Checking the inlet data size and send the data to the pylsl stream.</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">inlet</span><span class="o">.</span><span class="n">store_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">250</span><span class="p">:</span>
+                    <span class="n">inlet</span><span class="o">.</span><span class="n">send_data</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: no data to send&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prakyath Kantharaju
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Prakyath Kantharaju.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

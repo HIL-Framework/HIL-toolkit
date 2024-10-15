@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HIL.cost_acquisition.polar.polar &#8212; HIL 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/HIL/cost_acquisition/polar/polar';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">HIL 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../Introduction.html">Welcome to the HIL toolbox.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Modules/optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Modules/cost-acquisition.html">Cost acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Modules/cost-estimation.html">Cost estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Modules/exo-communication.html">EXO Communication</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for HIL.cost_acquisition.polar.polar</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">times_result</span>
+<span class="kn">from</span> <span class="nn">bleak.uuids</span> <span class="kn">import</span> <span class="n">uuid16_dict</span>
+<span class="kn">from</span> <span class="nn">bleak</span> <span class="kn">import</span> <span class="n">BleakClient</span>
+<span class="kn">import</span> <span class="nn">signal</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">import</span> <span class="nn">pylsl</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="c1"># HIL </span>
+<span class="kn">from</span> <span class="nn">HIL.cost_acquisition.polar.utils.utils</span> <span class="kn">import</span> <span class="n">convert_array_to_signed_int</span><span class="p">,</span> \
+            <span class="n">convert_to_unsigned_long</span><span class="p">,</span> <span class="n">ECG_stream</span><span class="p">,</span> <span class="n">ACC_stream</span>
+
+<div class="viewcode-block" id="Polar">
+<a class="viewcode-back" href="../../../../HIL.cost_acquisition.polar.html#HIL.cost_acquisition.polar.polar.Polar">[docs]</a>
+<span class="k">class</span> <span class="nc">Polar</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;E1:26:4D:8F:18:3B&quot;</span><span class="p">,</span> <span class="n">ECG</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ACC</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+            <span class="n">publish_dashboard</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">acc_name</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;polar accel&#39;</span><span class="p">,</span> <span class="n">ecg_name</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;polar ECG&#39;</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;_Main polar acquisition function which uses the Bluetooth ble to get the data. Depends on the Bluez library</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address (str, optional): BLE address for the polar device. Defaults to &quot;E1:26:4D:8F:18:3B&quot;.</span>
+<span class="sd">            ECG (bool, optional): ECG data collection flag . Defaults to True.</span>
+<span class="sd">            ACC (bool, optional): Acceleration data collection flag. Defaults to True.</span>
+<span class="sd">            publish_dashboard (bool, optional): Should the data be published. Defaults to True.</span>
+<span class="sd">            acc_name (str, optional): Name of the acceleration stream. Defaults to &#39;polar accel&#39;.</span>
+<span class="sd">            ecg_name (str, optional): Name of the ECG stream. Defaults to &#39;polar ECG&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># address</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ADDRESS</span> <span class="o">=</span> <span class="n">address</span>
+
+        <span class="c1"># flag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ECG_FLAG</span> <span class="o">=</span> <span class="n">ECG</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ACC_FLAG</span> <span class="o">=</span> <span class="n">ACC</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PUBLISH_DASHBOARD</span> <span class="o">=</span> <span class="n">publish_dashboard</span>
+
+        <span class="c1"># dict</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ECG_data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ECG_data</span><span class="p">[</span><span class="s1">&#39;ecg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ECG_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ACC_data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ACC_data</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ACC_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># logging</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+        <span class="c1"># time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_time_ecg</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># placeholder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># setup</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup</span><span class="p">()</span>
+
+        <span class="c1"># ACC stream</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ACC_stream</span> <span class="o">=</span> <span class="n">ACC_stream</span><span class="p">(</span><span class="n">acc_name</span><span class="p">)</span>
+        <span class="c1"># ECG stream</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ECG_stream</span> <span class="o">=</span> <span class="n">ECG_stream</span><span class="p">(</span><span class="n">ecg_name</span><span class="p">)</span>
+
+
+
+    <span class="k">def</span> <span class="nf">_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup the streaming and connect the device to the bluetooth</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">uuid16_dict_polar</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">uuid16_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="c1">## This is the device MAC ID, please update with your device ID</span>
+
+        <span class="c1">## UUID for model number ##</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">MODEL_NBR_UUID</span> <span class="o">=</span> <span class="s2">&quot;0000</span><span class="si">{0:x}</span><span class="s2">-0000-1000-8000-00805f9b34fb&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">uuid16_dict_polar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Model Number String&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+
+
+        <span class="c1">## UUID for manufacturer name ##</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">MANUFACTURER_NAME_UUID</span> <span class="o">=</span> <span class="s2">&quot;0000</span><span class="si">{0:x}</span><span class="s2">-0000-1000-8000-00805f9b34fb&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">uuid16_dict_polar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Manufacturer Name String&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1">## UUID for battery level ##</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">BATTERY_LEVEL_UUID</span> <span class="o">=</span> <span class="s2">&quot;0000</span><span class="si">{0:x}</span><span class="s2">-0000-1000-8000-00805f9b34fb&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">uuid16_dict_polar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Battery Level&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1">## UUID for connection establsihment with device ##</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PMD_SERVICE</span> <span class="o">=</span> <span class="s2">&quot;FB005C80-02E7-F387-1CAD-8ACD2D8DF0C8&quot;</span>
+
+        <span class="c1">## UUID for Request of stream settings ##</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PMD_CONTROL</span> <span class="o">=</span> <span class="s2">&quot;FB005C81-02E7-F387-1CAD-8ACD2D8DF0C8&quot;</span>
+
+        <span class="c1">## UUID for Request of start stream ##</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PMD_DATA</span> <span class="o">=</span> <span class="s2">&quot;FB005C82-02E7-F387-1CAD-8ACD2D8DF0C8&quot;</span>
+
+        <span class="c1"># load all the write data byte arrays</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">WRITE_DATA</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ECG&#39;</span><span class="p">:</span>
+                           <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x82</span><span class="p">,</span> \
+                                      <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x0E</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">]),</span>
+                           <span class="s1">&#39;ACC&#39;</span><span class="p">:</span><span class="nb">bytearray</span><span class="p">(</span>
+                               <span class="p">[</span><span class="mh">0x02</span><span class="p">,</span>
+                                <span class="mh">0x02</span><span class="p">,</span>
+                                <span class="mh">0x00</span><span class="p">,</span>
+                                <span class="mh">0x01</span><span class="p">,</span>
+                                <span class="mh">0xC8</span><span class="p">,</span>
+                                <span class="mh">0x00</span><span class="p">,</span>
+                                <span class="mh">0x01</span><span class="p">,</span>
+                                <span class="mh">0x01</span><span class="p">,</span>
+                                <span class="mh">0x10</span><span class="p">,</span>
+                                <span class="mh">0x00</span><span class="p">,</span>
+                                <span class="mh">0x02</span><span class="p">,</span>
+                                <span class="mh">0x01</span><span class="p">,</span>
+                                <span class="mh">0x08</span><span class="p">,</span>
+                                <span class="mh">0x00</span><span class="p">])</span>
+                           <span class="p">}</span>
+
+        <span class="c1">## For Plolar H10  sampling frequencies ##</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SAMPLING_FREQ</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ECG&#39;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s1">&#39;ACC&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">}</span>
+
+<div class="viewcode-block" id="Polar.main">
+<a class="viewcode-back" href="../../../../HIL.cost_acquisition.polar.html#HIL.cost_acquisition.polar.polar.Polar.main">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="n">BleakClient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ADDRESS</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+                <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interrupt_handler</span><span class="p">)</span>
+                <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="n">client</span><span class="p">)),</span>
+                <span class="p">]</span>
+
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">:</span> <span class="n">BleakClient</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Async function with connect to the ble client and initiaing data collection module</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            client (BleakClient): Bluetooth data collection client.</span>
+<span class="sd">            debug (bool, optional): debugging the ble system (Not used). Defaults to False.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1">## Writing chracterstic description to control point for request of UUID (defined above) ##</span>
+        <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">is_connected</span><span class="p">()</span> <span class="c1">#type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--------- Polar Device connected--------------&quot;</span><span class="p">)</span>
+
+        <span class="n">model_number</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">read_gatt_char</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MODEL_NBR_UUID</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Model Number: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">chr</span><span class="p">,</span> <span class="n">model_number</span><span class="p">))))</span>
+
+        <span class="n">manufacturer_name</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">read_gatt_char</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MANUFACTURER_NAME_UUID</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Manufacturer Name: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">chr</span><span class="p">,</span> <span class="n">manufacturer_name</span><span class="p">))))</span>
+
+        <span class="n">battery_level</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">read_gatt_char</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BATTERY_LEVEL_UUID</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Battery Level: </span><span class="si">{0}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">battery_level</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+
+        <span class="n">att_read</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">read_gatt_char</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PMD_CONTROL</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;connected&quot;</span><span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ACC_FLAG</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;started the acceleration connection&#39;</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">write_gatt_char</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PMD_CONTROL</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">WRITE_DATA</span><span class="p">[</span><span class="s1">&#39;ACC&#39;</span><span class="p">],</span> <span class="n">response</span>  <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Finished the acceleration connection&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ECG_FLAG</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;started the ECG connection&#39;</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">write_gatt_char</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PMD_CONTROL</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">WRITE_DATA</span><span class="p">[</span><span class="s1">&#39;ECG&#39;</span><span class="p">],</span> <span class="n">response</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Finished the ECG connection&#39;</span><span class="p">)</span>
+
+        <span class="c1">## ECG stream started</span>
+        <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">start_notify</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PMD_DATA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_data</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+            <span class="c1">## Collecting data for 1 second</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># printing something for viewer confidence ;)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_time</span><span class="p">)</span>
+
+
+
+
+    <span class="k">def</span> <span class="nf">_interrupt_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signum</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle any interrupt in the data communication</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            signum (Any): Async interupt handlers</span>
+<span class="sd">            frame (Any): exit frame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;no ble client found closing the device&#39;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;found ble client stopping&#39;</span><span class="p">)</span>
+            <span class="c1"># close the connection properly</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">_send_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;From the collected data send the ECG and or ACC data to the pylsls</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            sender (Any): Sender information</span>
+<span class="sd">            data (Any): Data byte information</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">save_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># ECG data</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0x00</span><span class="p">:</span>
+            <span class="n">timestamp</span> <span class="o">=</span> <span class="n">convert_to_unsigned_long</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="mi">3</span>
+            <span class="n">samples</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">10</span><span class="p">:]</span>
+            <span class="n">offset</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> 
+            <span class="n">time_diff</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_time_ecg</span>
+            <span class="n">ECG_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">while</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">):</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">ecg</span> <span class="o">=</span> <span class="n">convert_array_to_signed_int</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+                <span class="n">offset</span> <span class="o">+=</span> <span class="n">step</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ECG_data</span><span class="p">[</span><span class="s1">&#39;ecg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">ecg</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ECG_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">timestamp</span><span class="p">])</span>
+                <span class="n">ECG_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ecg</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">previous_time_ecg</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ECG_stream</span><span class="o">.</span><span class="n">push_chunk</span><span class="p">(</span><span class="n">ECG_list</span><span class="p">,</span> <span class="n">pylsl</span><span class="o">.</span><span class="n">local_clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_diff</span><span class="p">)</span>
+
+        <span class="c1"># ACC data</span>
+
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0x02</span><span class="p">:</span>
+            <span class="n">timestamp</span> <span class="o">=</span> <span class="n">convert_to_unsigned_long</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+            <span class="n">frame_type</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>
+            <span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame_type</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">resolution</span> <span class="o">/</span> <span class="mf">8.0</span><span class="p">)</span>
+            <span class="n">samples</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">10</span><span class="p">:]</span>
+            <span class="n">offset</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> 
+            <span class="n">time_diff</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_time</span>
+            <span class="n">ACC_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">while</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">):</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">convert_array_to_signed_int</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+                <span class="n">offset</span> <span class="o">+=</span> <span class="n">step</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">convert_array_to_signed_int</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+                <span class="n">offset</span> <span class="o">+=</span> <span class="n">step</span>
+                <span class="n">z</span> <span class="o">=</span> <span class="n">convert_array_to_signed_int</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+                <span class="n">offset</span> <span class="o">+=</span> <span class="n">step</span>
+                <span class="n">ACC_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ACC_data</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ACC_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">timestamp</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ACC_stream</span><span class="o">.</span><span class="n">push_chunk</span><span class="p">(</span><span class="n">ACC_list</span><span class="p">,</span> <span class="n">pylsl</span><span class="o">.</span><span class="n">local_clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_diff</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">previous_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span></div>
+
+        
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prakyath Kantharaju
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Prakyath Kantharaju.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

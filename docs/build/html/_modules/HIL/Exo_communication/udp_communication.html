@@ -17,32 +17,32 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../../_static/documentation_options.js?v=a1637f0b"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/HIL/Exo_communication/udp_communication';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -125,6 +125,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../../index.html">
   
@@ -140,7 +142,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -155,7 +157,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../Setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Modules/optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Modules/cost-acquisition.html">Cost acquisition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../Modules/cost-estimation.html">Cost estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modules/cost-estimation.html">Cost Estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Modules/exo-communication.html">EXO Communication</a></li>
 </ul>
 
@@ -186,9 +188,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -218,10 +220,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -229,7 +231,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -260,13 +262,8 @@ document.write(`
                 <article class="bd-article">
                   
   <h1>Source code for HIL.Exo_communication.udp_communication</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span><span class="nn">logging</span><span class="o">,</span><span class="nn">time</span><span class="o">,</span><span class="nn">select</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">signal</span> <span class="kn">import</span> <span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">exit</span>
-<span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">logging</span>
-
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">HIL.Exo_communication.utils</span> <span class="kn">import</span> <span class="n">_UDP</span>
 
 <span class="c1"># object to create and initialize the hander class for sending</span>
 
@@ -274,8 +271,17 @@ document.write(`
 <div class="viewcode-block" id="UDPSend">
 <a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPSend">[docs]</a>
 <span class="k">class</span> <span class="nc">UDPSend</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_ip</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">prediction_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50005</span><span class="p">,</span><span class="n">stopping_port</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">50007</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">target_ip</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        UDP communication class to send the data to the exoskeleton</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        target_ip (str, optional): IP address of the exoskeleton computer or port. Defaults to &#39;localhost&#39;.</span>
+<span class="sd">        prediction_port (int, optional): Port for sending the prediction data. Defaults to 50005.</span>
+<span class="sd">        stopping_port (int, optional): Port for sending the stopping data. Defaults to 50007.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_ip</span> <span class="o">=</span> <span class="n">target_ip</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prediction_port</span> <span class="o">=</span> <span class="n">prediction_port</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stopping_port</span> <span class="o">=</span> <span class="n">stopping_port</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prediction</span> <span class="o">=</span> <span class="n">_UDP</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">target_ip</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_port</span><span class="p">)</span> <span class="c1">#type: ignore</span>
@@ -287,28 +293,57 @@ document.write(`
 
 <div class="viewcode-block" id="UDPSend.send_all">
 <a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPSend.send_all">[docs]</a>
-    <span class="k">def</span> <span class="nf">send_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">stopping</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">send_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">stopping</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send the prediction and stopping data to the exoskeleton</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        prediction (float): Prediction data</span>
+<span class="sd">        stopping (float): Stopping data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># data validation </span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stopping</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;prediction is not a float or stopping is not a bool&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;prediction is not a float or stopping is not a bool&#39;</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;sending the data to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prediction_port</span><span class="si">}</span><span class="s1">  stopping port: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stopping_port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prediction</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">stopping</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">stopping</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_stoping</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;STOP&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="UDPSend.send_pred">
 <a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPSend.send_pred">[docs]</a>
     <span class="k">def</span> <span class="nf">send_pred</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">prediction</span><span class="p">:</span><span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send the prediction data to the exoskeleton</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        prediction (float): Prediction data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prediction</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="UDPSend.send_stopping">
 <a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPSend.send_stopping">[docs]</a>
-    <span class="k">def</span> <span class="nf">send_stopping</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stoping</span><span class="p">:</span><span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">send_stopping</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stoping</span><span class="p">:</span><span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send the stopping data to the exoskeleton</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        stoping (float): Stopping data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stoping</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">stoping</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="UDPSend.close">
 <a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPSend.close">[docs]</a>
     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close the socket</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prediction</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stoping</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 </div>
@@ -318,59 +353,63 @@ document.write(`
 <div class="viewcode-block" id="UDPReceive">
 <a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive">[docs]</a>
 <span class="k">class</span> <span class="nc">UDPReceive</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_ip</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">30005</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_stopping</span> <span class="o">=</span> <span class="n">_UDP</span><span class="p">(</span><span class="n">ip</span> <span class="o">=</span> <span class="n">target_ip</span><span class="p">,</span> <span class="n">receiving</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">receiving_ip</span> <span class="o">=</span> <span class="n">port</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_ip</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">30005</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        UDP communication class to receive the data from the exoskeleton</span>
 
-<div class="viewcode-block" id="UDPReceive.receive">
-<a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive.receive">[docs]</a>
-    <span class="k">def</span> <span class="nf">receive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stopping</span><span class="o">.</span><span class="n">receive</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;in receive&#39;</span><span class="p">)</span>
+<span class="sd">        Args:</span>
+<span class="sd">        target_ip (str, optional): IP address of the exoskeleton computer or port. Defaults to &#39;localhost&#39;.</span>
+<span class="sd">        port (int, optional): Port for receiving the data. Defaults to 30005.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_receiving</span> <span class="o">=</span> <span class="n">_UDP</span><span class="p">(</span><span class="n">ip</span> <span class="o">=</span> <span class="n">target_ip</span><span class="p">,</span> <span class="n">receiving</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">receiving_ip</span> <span class="o">=</span> <span class="n">port</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="UDPReceive.receive_stop">
+<a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive.receive_stop">[docs]</a>
+    <span class="k">def</span> <span class="nf">receive_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receive the data from the exoskeleton and see if it is a stop signal then return True else False</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        data (str): Stopping data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_receiving</span><span class="o">.</span><span class="n">receive</span><span class="p">()</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;returning True&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;received data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;no data received&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="UDPReceive.receive_pred">
+<a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive.receive_pred">[docs]</a>
+    <span class="k">def</span> <span class="nf">receive_pred</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receive the prediction data from the exoskeleton</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        data (float): Prediction data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_receiving</span><span class="o">.</span><span class="n">receive</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;received data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># convert bytes to float # type: ignore</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;no data received&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="UDPReceive.close">
+<a class="viewcode-back" href="../../../HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive.close">[docs]</a>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close the socket</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_receiving</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 </div>
 
-<span class="c1"># base UDP class which will send the data to matlab or any socket</span>
-<span class="k">class</span> <span class="nc">_UDP</span><span class="p">():</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="s1">&#39;5005&#39;</span><span class="p">,</span> <span class="n">receiving</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">receiving_ip</span> <span class="o">=</span> <span class="mi">30005</span><span class="p">):</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;starting port at </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s1">, port </span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="c1"># setup the communication</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="c1"># Internet</span>
-                     <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span> <span class="c1"># UDP</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#type: ignore</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ip</span> <span class="o">=</span> <span class="n">ip</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">receiving</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">receiving_ip</span><span class="p">))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">select</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">select</span><span class="p">([],[</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">],</span> <span class="p">[],</span> <span class="mi">1</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-        <span class="c1"># send the message by encode the string to bytes</span>
-        <span class="n">MESSAGE</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">MESSAGE</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;closing the socket&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    
-    <span class="k">def</span> <span class="nf">receive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">select</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span> <span class="c1"># buffer size is 1024 bytes</span>
-                <span class="k">while</span> <span class="n">data</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span> <span class="c1"># buffer size is 1024 bytes</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="s1">&#39;recieved&#39;</span><span class="p">)</span>
-                    <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="n">new_data</span> <span class="c1">#type: ignore</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="k">return</span> <span class="n">data</span>
 
 
 
@@ -378,21 +417,22 @@ document.write(`
 
 
 
-<span class="c1"># simple script to test the communication</span>
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">MESSAGE</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;test&#39;</span>
-    <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="c1"># Internet</span>
-                     <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span> <span class="c1"># UDP</span>
-    <span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">MESSAGE</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">5005</span><span class="p">))</span>
-    <span class="n">an</span> <span class="o">=</span> <span class="n">_UDP</span><span class="p">()</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">communication</span> <span class="o">=</span> <span class="n">UDPSend</span><span class="p">()</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">:</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">communication</span><span class="o">.</span><span class="n">send_pred</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">an</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># # simple script to test the communication</span>
+<span class="c1"># if __name__ == &quot;__main__&quot;:</span>
+<span class="c1">#     MESSAGE = b&#39;test&#39;</span>
+<span class="c1">#     sock = socket.socket(socket.AF_INET, # Internet</span>
+<span class="c1">#                      socket.SOCK_DGRAM) # UDP</span>
+<span class="c1">#     sock.sendto(MESSAGE, (&#39;localhost&#39;, 5005))</span>
+<span class="c1">#     an = _UDP()</span>
+<span class="c1">#     i = 1</span>
+<span class="c1">#     communication = UDPSend()</span>
+<span class="c1">#     while i &lt; 10000:</span>
+<span class="c1">#         i += 1</span>
+<span class="c1">#         communication.send_pred(i)</span>
+<span class="c1">#         time.sleep(1)</span>
+<span class="c1">#         print(i)</span>
+<span class="c1">#     an.close()</span>
 
 </pre></div>
 
@@ -456,8 +496,8 @@ By Prakyath Kantharaju
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -18,32 +18,32 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=a1637f0b"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'HIL.optimization';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -124,6 +124,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="index.html">
   
@@ -139,7 +141,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -154,7 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modules/optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modules/cost-acquisition.html">Cost acquisition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Modules/cost-estimation.html">Cost estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modules/cost-estimation.html">Cost Estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modules/exo-communication.html">EXO Communication</a></li>
 </ul>
 
@@ -185,9 +187,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -265,10 +267,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -276,14 +278,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -305,9 +307,33 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hil-optimization-bo-module">HIL.optimization.BO module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hil-optimization-hil-module">HIL.optimization.HIL module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hil-optimization-extract-cost-module">HIL.optimization.extract_cost module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.optimization.BO">HIL.optimization.BO module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.BO.BayesianOptimization"><code class="docutils literal notranslate"><span class="pre">BayesianOptimization</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.BO.BayesianOptimization.run"><code class="docutils literal notranslate"><span class="pre">BayesianOptimization.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.optimization.HIL">HIL.optimization.HIL module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.HIL"><code class="docutils literal notranslate"><span class="pre">HIL</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.HIL.start_cli"><code class="docutils literal notranslate"><span class="pre">HIL.start_cli()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.STATE"><code class="docutils literal notranslate"><span class="pre">STATE</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.STATE.DONE"><code class="docutils literal notranslate"><span class="pre">STATE.DONE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.STATE.EXPLORATION"><code class="docutils literal notranslate"><span class="pre">STATE.EXPLORATION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.STATE.OPTIMIZATION"><code class="docutils literal notranslate"><span class="pre">STATE.OPTIMIZATION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.optimization.extract_cost">HIL.optimization.extract_cost module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.extract_cost.ExtractCost"><code class="docutils literal notranslate"><span class="pre">ExtractCost</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.extract_cost.ExtractCost.extract_data"><code class="docutils literal notranslate"><span class="pre">ExtractCost.extract_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.optimization.kernel">HIL.optimization.kernel module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.Matern"><code class="docutils literal notranslate"><span class="pre">Matern</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.Matern.get_covr_module"><code class="docutils literal notranslate"><span class="pre">Matern.get_covr_module()</span></code></a></li>
@@ -321,6 +347,7 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.kernel"><code class="docutils literal notranslate"><span class="pre">kernel</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.kernel.get_covr_module"><code class="docutils literal notranslate"><span class="pre">kernel.get_covr_module()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.kernel.reset"><code class="docutils literal notranslate"><span class="pre">kernel.reset()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -342,20 +369,98 @@ document.write(`
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
-<section id="hil-optimization-bo-module">
-<h2>HIL.optimization.BO module<a class="headerlink" href="#hil-optimization-bo-module" title="Link to this heading">#</a></h2>
+<section id="module-HIL.optimization.BO">
+<span id="hil-optimization-bo-module"></span><h2>HIL.optimization.BO module<a class="headerlink" href="#module-HIL.optimization.BO" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HIL.optimization.BO.BayesianOptimization">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HIL.optimization.BO.</span></span><span class="sig-name descname"><span class="pre">BayesianOptimization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_parms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">array([0,</span> <span class="pre">1])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">array([5.e-03,</span> <span class="pre">1.e+01])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ei'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'SE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_save_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_parms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/optimization/BO.html#BayesianOptimization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.BO.BayesianOptimization" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Bayesian Optimization class for HIL</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="HIL.optimization.BO.BayesianOptimization.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reload_hyper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/HIL/optimization/BO.html#BayesianOptimization.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.BO.BayesianOptimization.run" title="Link to this definition">#</a></dt>
+<dd><p>Run the optimization with input data points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>NxM np.ndarray</em>) – Input parameters N -&gt; n_parms, M -&gt; iter</p></li>
+<li><p><strong>y</strong> (<em>Mx1</em>) – Cost function array</p></li>
+<li><p><strong>reload_hyper</strong> (<em>bool</em><em>, </em><em>optional</em>) – Reload the hyper parameter trained in the previous iter. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>parameter to sample next</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="hil-optimization-hil-module">
-<h2>HIL.optimization.HIL module<a class="headerlink" href="#hil-optimization-hil-module" title="Link to this heading">#</a></h2>
+<section id="module-HIL.optimization.HIL">
+<span id="hil-optimization-hil-module"></span><h2>HIL.optimization.HIL module<a class="headerlink" href="#module-HIL.optimization.HIL" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HIL.optimization.HIL.HIL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HIL.optimization.HIL.</span></span><span class="sig-name descname"><span class="pre">HIL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/optimization/HIL.html#HIL"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.HIL.HIL" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Main HIL optimization
+This program will extract cost from the pylsl stream.
+Run the optimization.
+Check if the optimization is done.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="HIL.optimization.HIL.HIL.start_cli">
+<span class="sig-name descname"><span class="pre">start_cli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/optimization/HIL.html#HIL.start_cli"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.HIL.HIL.start_cli" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HIL.optimization.HIL.STATE">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HIL.optimization.HIL.</span></span><span class="sig-name descname"><span class="pre">STATE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/optimization/HIL.html#STATE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.HIL.STATE" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HIL.optimization.HIL.STATE.DONE">
+<span class="sig-name descname"><span class="pre">DONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#HIL.optimization.HIL.STATE.DONE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HIL.optimization.HIL.STATE.EXPLORATION">
+<span class="sig-name descname"><span class="pre">EXPLORATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#HIL.optimization.HIL.STATE.EXPLORATION" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="HIL.optimization.HIL.STATE.OPTIMIZATION">
+<span class="sig-name descname"><span class="pre">OPTIMIZATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#HIL.optimization.HIL.STATE.OPTIMIZATION" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="hil-optimization-extract-cost-module">
-<h2>HIL.optimization.extract_cost module<a class="headerlink" href="#hil-optimization-extract-cost-module" title="Link to this heading">#</a></h2>
+<section id="module-HIL.optimization.extract_cost">
+<span id="hil-optimization-extract-cost-module"></span><h2>HIL.optimization.extract_cost module<a class="headerlink" href="#module-HIL.optimization.extract_cost" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HIL.optimization.extract_cost.ExtractCost">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HIL.optimization.extract_cost.</span></span><span class="sig-name descname"><span class="pre">ExtractCost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cost_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Met_cost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/optimization/extract_cost.html#ExtractCost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.extract_cost.ExtractCost" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Check for the streaming has cost, if so extract and updated the cost function.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="HIL.optimization.extract_cost.ExtractCost.extract_data">
+<span class="sig-name descname"><span class="pre">extract_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/HIL/optimization/extract_cost.html#ExtractCost.extract_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.extract_cost.ExtractCost.extract_data" title="Link to this definition">#</a></dt>
+<dd><p>Extract data from inlet.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-HIL.optimization.kernel">
 <span id="hil-optimization-kernel-module"></span><h2>HIL.optimization.kernel module<a class="headerlink" href="#module-HIL.optimization.kernel" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="HIL.optimization.kernel.Matern">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HIL.optimization.kernel.</span></span><span class="sig-name descname"><span class="pre">Matern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_parms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variance_constraints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/optimization/kernel.html#Matern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.kernel.Matern" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HIL.optimization.kernel.</span></span><span class="sig-name descname"><span class="pre">Matern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_parms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variance_constraints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/optimization/kernel.html#Matern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.kernel.Matern" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#HIL.optimization.kernel.kernel" title="HIL.optimization.kernel.kernel"><code class="xref py py-class docutils literal notranslate"><span class="pre">kernel</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="HIL.optimization.kernel.Matern.get_covr_module">
@@ -372,7 +477,7 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="HIL.optimization.kernel.SE">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HIL.optimization.kernel.</span></span><span class="sig-name descname"><span class="pre">SE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_parms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variance_constraints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/optimization/kernel.html#SE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.kernel.SE" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">HIL.optimization.kernel.</span></span><span class="sig-name descname"><span class="pre">SE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_parms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variance_constraints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HIL/optimization/kernel.html#SE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.kernel.SE" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#HIL.optimization.kernel.kernel" title="HIL.optimization.kernel.kernel"><code class="xref py py-class docutils literal notranslate"><span class="pre">kernel</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="HIL.optimization.kernel.SE.get_covr_module">
@@ -394,6 +499,11 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="HIL.optimization.kernel.kernel.get_covr_module">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_covr_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/HIL/optimization/kernel.html#kernel.get_covr_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.kernel.kernel.get_covr_module" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HIL.optimization.kernel.kernel.reset">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/HIL/optimization/kernel.html#kernel.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HIL.optimization.kernel.kernel.reset" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -432,9 +542,33 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hil-optimization-bo-module">HIL.optimization.BO module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hil-optimization-hil-module">HIL.optimization.HIL module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hil-optimization-extract-cost-module">HIL.optimization.extract_cost module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.optimization.BO">HIL.optimization.BO module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.BO.BayesianOptimization"><code class="docutils literal notranslate"><span class="pre">BayesianOptimization</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.BO.BayesianOptimization.run"><code class="docutils literal notranslate"><span class="pre">BayesianOptimization.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.optimization.HIL">HIL.optimization.HIL module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.HIL"><code class="docutils literal notranslate"><span class="pre">HIL</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.HIL.start_cli"><code class="docutils literal notranslate"><span class="pre">HIL.start_cli()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.STATE"><code class="docutils literal notranslate"><span class="pre">STATE</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.STATE.DONE"><code class="docutils literal notranslate"><span class="pre">STATE.DONE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.STATE.EXPLORATION"><code class="docutils literal notranslate"><span class="pre">STATE.EXPLORATION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.HIL.STATE.OPTIMIZATION"><code class="docutils literal notranslate"><span class="pre">STATE.OPTIMIZATION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.optimization.extract_cost">HIL.optimization.extract_cost module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.extract_cost.ExtractCost"><code class="docutils literal notranslate"><span class="pre">ExtractCost</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.extract_cost.ExtractCost.extract_data"><code class="docutils literal notranslate"><span class="pre">ExtractCost.extract_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-HIL.optimization.kernel">HIL.optimization.kernel module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.Matern"><code class="docutils literal notranslate"><span class="pre">Matern</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.Matern.get_covr_module"><code class="docutils literal notranslate"><span class="pre">Matern.get_covr_module()</span></code></a></li>
@@ -448,6 +582,7 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.kernel"><code class="docutils literal notranslate"><span class="pre">kernel</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.kernel.get_covr_module"><code class="docutils literal notranslate"><span class="pre">kernel.get_covr_module()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#HIL.optimization.kernel.kernel.reset"><code class="docutils literal notranslate"><span class="pre">kernel.reset()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -501,8 +636,8 @@ By Prakyath Kantharaju
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

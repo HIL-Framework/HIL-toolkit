@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HIL.optimization.BO &#8212; HIL 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/HIL/optimization/BO';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">HIL 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Welcome to the HIL toolbox.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modules/optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modules/cost-acquisition.html">Cost acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modules/cost-estimation.html">Cost Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modules/exo-communication.html">EXO Communication</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for HIL.optimization.BO</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">Adam</span> <span class="c1"># type: ignore</span>
+<span class="kn">from</span> <span class="nn">botorch.models</span> <span class="kn">import</span> <span class="n">SingleTaskGP</span>
+<span class="c1"># from botorch.fit import fit_gpytorch_model</span>
+<span class="kn">from</span> <span class="nn">gpytorch.mlls</span> <span class="kn">import</span> <span class="n">ExactMarginalLogLikelihood</span>
+<span class="kn">from</span> <span class="nn">botorch.acquisition</span> <span class="kn">import</span> <span class="n">ExpectedImprovement</span><span class="p">,</span> <span class="n">qExpectedImprovement</span><span class="p">,</span> <span class="n">qNoisyExpectedImprovement</span>
+<span class="kn">from</span> <span class="nn">botorch.acquisition.analytic</span> <span class="kn">import</span> <span class="n">ProbabilityOfImprovement</span>
+<span class="kn">from</span> <span class="nn">gpytorch.likelihoods</span> <span class="kn">import</span> <span class="n">GaussianLikelihood</span>
+<span class="kn">from</span> <span class="nn">gpytorch.constraints</span> <span class="kn">import</span> <span class="n">GreaterThan</span><span class="p">,</span> <span class="n">Interval</span>
+<span class="kn">from</span> <span class="nn">botorch.sampling</span> <span class="kn">import</span> <span class="n">IIDNormalSampler</span>
+<span class="kn">from</span> <span class="nn">botorch.optim</span> <span class="kn">import</span> <span class="n">optimize_acqf</span>
+
+<span class="c1"># local imports</span>
+<span class="kn">from</span> <span class="nn">HIL.optimization.kernel</span> <span class="kn">import</span> <span class="n">SE</span><span class="p">,</span> <span class="n">Matern</span> 
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># utils</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span>
+
+    
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="BayesianOptimization">
+<a class="viewcode-back" href="../../../Modules/optimization.html#HIL.optimization.BO.BayesianOptimization">[docs]</a>
+<span class="k">class</span> <span class="nc">BayesianOptimization</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Bayesian Optimization class for HIL</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_parms</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">range</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">noise_range</span> <span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.005</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span> <span class="n">acq</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ei&quot;</span><span class="p">,</span>
+        <span class="n">kernel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;SE&quot;</span><span class="p">,</span> <span class="n">model_save_path</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">device</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cpu&quot;</span> <span class="p">,</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">kernel_parms</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Bayesian optimization for HIL</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            n_parms (int, optional): Number of optimization parameters ( exoskeleton parameters). Defaults to 1.</span>
+<span class="sd">            range (np.ndarray, optional): Range of the optimization parameters. Defaults to np.array([0,1]).</span>
+<span class="sd">            noise_range (np.ndarray, optional): Range of noise contraints for optimization. Defaults to np.array([0.005, 10]).</span>
+<span class="sd">            acq (str, optional): Selecting acquisition function, options are &#39;ei&#39;, &#39;pi&#39;. Defaults to &quot;ei&quot;.</span>
+<span class="sd">            kernel (str, optional): Selecting kernel for the GP, options are &quot;SE&quot;, &quot;Matern&quot;. Defaults to &quot;SE&quot;.</span>
+<span class="sd">            model_save_path (str, optional): Path the new optimization saving directory. Defaults to &quot;&quot;.</span>
+<span class="sd">            device (str, optional): which device to perform optimization, &quot;gpu&quot;, &quot;cuda&quot; or &quot;cpu&quot;. Defaults to &quot;cpu&quot;.</span>
+<span class="sd">            plot (bool, optional): options to plot the gp and acquisition points. Defaults to False.</span>
+<span class="sd">            kernel_parms (Dict, optional): Dictionary of kernel parameters. Defaults to {}.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO have an options of sending in the kernel parameters.</span>
+        <span class="k">if</span> <span class="n">kernel</span> <span class="o">==</span> <span class="s2">&quot;SE&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kernel_parms</span> <span class="o">==</span> <span class="p">{}:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span> <span class="o">=</span> <span class="n">SE</span><span class="p">(</span><span class="n">n_parms</span><span class="o">=</span><span class="n">n_parms</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span> <span class="o">=</span> <span class="n">SE</span><span class="p">(</span><span class="o">**</span><span class="n">kernel_parms</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">covar_module</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">get_covr_module</span><span class="p">()</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kernel_parms</span> <span class="o">==</span> <span class="p">{}:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span> <span class="o">=</span> <span class="n">Matern</span><span class="p">(</span><span class="n">n_parms</span><span class="o">=</span><span class="n">n_parms</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span> <span class="o">=</span> <span class="n">Matern</span><span class="p">(</span><span class="o">**</span><span class="n">kernel_parms</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">covar_module</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">get_covr_module</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_parms</span> <span class="o">=</span> <span class="n">n_parms</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="nb">range</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parms</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_save_path</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model_save_path</span> <span class="o">=</span> <span class="n">model_save_path</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># this is temp</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model_save_path</span> <span class="o">=</span> <span class="s2">&quot;tmp_data/&quot;</span>
+
+        
+
+        <span class="c1"># place holder for model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># place to store the parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([])</span>
+
+        <span class="c1"># device </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+
+        <span class="c1"># plotting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PLOT</span> <span class="o">=</span> <span class="n">plot</span>
+
+        <span class="c1"># logging</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+
+        <span class="c1"># Noise constraints</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_noise_constraints</span> <span class="o">=</span> <span class="n">noise_range</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">likelihood</span> <span class="o">=</span> <span class="n">GaussianLikelihood</span><span class="p">()</span> <span class="c1">#noise_constraint=Interval(self._noise_constraints[0], self._noise_constraints[1]))</span>
+
+        <span class="c1"># number of sampling in the acquisition points</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N_POINTS</span> <span class="o">=</span> <span class="mi">200</span>
+
+        <span class="c1"># acquisition function type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acq_type</span> <span class="o">=</span> <span class="n">acq</span>
+
+    <span class="k">def</span> <span class="nf">_step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Fit the model and identify the next parameter, also plots the model if plot is true</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            np.ndarray: Next parameter to sampled</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">parameter</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">()</span>
+        <span class="n">new_parameter</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Next parameter is </span><span class="si">{</span><span class="n">new_parameter</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_model</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">PLOT</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_plot</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">new_parameter</span>
+
+    <span class="k">def</span> <span class="nf">_get_data_best</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the best value predicted by the model</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: best value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="nb">range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_POINTS</span><span class="p">)</span>
+        <span class="nb">range</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="nb">range</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span> <span class="c1">#type: ignore</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="nb">range</span><span class="p">)</span>     <span class="c1">#type: ignore</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="c1">#type: ignore</span>
+
+    <span class="k">def</span> <span class="nf">_training</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">,</span><span class="n">train_x</span><span class="p">,</span><span class="n">train_y</span><span class="p">):</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Train the model using Adam Optimizer and gradient descent</span>
+<span class="sd">        Log Marginal Likelihood is used as the cost function</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+           
+        <span class="n">parameter</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">likelihood</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> 
+        <span class="n">mll</span><span class="o">=</span> <span class="n">ExactMarginalLogLikelihood</span><span class="p">(</span><span class="n">likelihood</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+         
+
+        <span class="n">train_y</span><span class="o">=</span><span class="n">train_y</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">mll</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">train_x</span><span class="p">),</span> <span class="n">train_y</span><span class="p">)</span> <span class="c1">#type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;before training Loss: &quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+            
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">mll</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span> <span class="c1">#type: ignore</span>
+            
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;after training Loss: &quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span> 
+
+    <span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Using the model and likelihood select the next data point to get next data points and acq value at that point</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple[torch.tensor, torch.tensor]: next parmaeter, value at the point</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_training</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">likelihood</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq_type</span> <span class="o">==</span> <span class="s2">&quot;ei&quot;</span><span class="p">:</span>
+            <span class="n">acq</span> <span class="o">=</span> <span class="n">qNoisyExpectedImprovement</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">sampler</span><span class="o">=</span><span class="n">IIDNormalSampler</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">N_POINTS</span><span class="p">]),</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1234</span><span class="p">))</span> <span class="c1">#type: ignore</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># TODO add other acquisition functions</span>
+            <span class="n">best_f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data_best</span><span class="p">()</span>
+            <span class="n">acq</span> <span class="o">=</span> <span class="n">ProbabilityOfImprovement</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">best_f</span><span class="p">,</span> <span class="n">sampler</span><span class="o">=</span><span class="n">IIDNormalSampler</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">N_POINTS</span><span class="p">]),</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1234</span><span class="p">))</span> <span class="c1">#type: ignore</span>
+
+        <span class="n">new_point</span><span class="p">,</span> <span class="n">value</span>  <span class="o">=</span> <span class="n">optimize_acqf</span><span class="p">(</span>
+            <span class="n">acq_function</span> <span class="o">=</span> <span class="n">acq</span><span class="p">,</span>
+            <span class="n">bounds</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">range</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">num_restarts</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+            <span class="n">raw_samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
+            <span class="n">options</span><span class="o">=</span><span class="p">{},</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_point</span><span class="p">,</span> <span class="n">value</span>
+
+    <span class="c1"># Temp function will be replaced is some way</span>
+    <span class="k">def</span> <span class="nf">_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">ms</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">x_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">y_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>  <span class="c1">#type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">likelihood</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">x_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="bp">self</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># print(x_length,self.range)</span>
+            <span class="n">observed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">likelihood</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x_length</span><span class="p">)))</span> <span class="c1">#type: ignore</span>
+            <span class="n">observed_mean</span> <span class="o">=</span> <span class="n">observed</span><span class="o">.</span><span class="n">mean</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="c1">#type: ignore</span>
+            <span class="n">upper</span><span class="p">,</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">observed</span><span class="o">.</span><span class="n">confidence_region</span><span class="p">()</span> <span class="c1">#type: ignore</span>
+            <span class="c1"># x_length = x_length.cpu().numpy()</span>
+            
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_length</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">observed_mean</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_length</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">lower</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">upper</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Observed Data&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;Confidence&#39;</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_save_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save the model and data in the given path</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">save_iter_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_save_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;iter_</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">save_iter_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">model_path</span> <span class="o">=</span> <span class="n">save_iter_path</span> <span class="o">+</span><span class="s1">&#39;/model.pth&#39;</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">model_path</span><span class="p">)</span> <span class="c1">#type: ignore</span>
+        <span class="n">data_save</span> <span class="o">=</span> <span class="n">save_iter_path</span> <span class="o">+</span> <span class="s1">&#39;/data.csv&#39;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">full_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">data_save</span><span class="p">,</span> <span class="n">full_data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;model saved successfully at </span><span class="si">{</span><span class="n">save_iter_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BayesianOptimization.run">
+<a class="viewcode-back" href="../../../Modules/optimization.html#HIL.optimization.BO.BayesianOptimization.run">[docs]</a>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">reload_hyper</span><span class="p">:</span> <span class="nb">bool</span>  <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run the optimization with input data points</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (NxM np.ndarray): Input parameters N -&gt; n_parms, M -&gt; iter</span>
+<span class="sd">            y (Mx1): Cost function array</span>
+<span class="sd">            reload_hyper (bool, optional): Reload the hyper parameter trained in the previous iter. Defaults to True.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            np.ndarray: parameter to sample next</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="s2">&quot;Length should be equal.&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">reload_hyper</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">likelihood</span> <span class="o">=</span> <span class="n">GaussianLikelihood</span><span class="p">(</span><span class="n">noise_constraint</span> <span class="o">=</span> <span class="n">Interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_noise_constraints</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_noise_constraints</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">SingleTaskGP</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">likelihood</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">likelihood</span><span class="p">,</span> <span class="n">covar_module</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">get_covr_module</span><span class="p">())</span> 
+            <span class="c1"># TODO check if this ok for multi dimension models</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># keeping the likehood save and kernel parameters so no need to reset those</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">SingleTaskGP</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">likelihood</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">likelihood</span><span class="p">,</span> <span class="n">covar_module</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">get_covr_module</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># fi the model and get the next parameter.</span>
+        <span class="n">new_parameter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step</span><span class="p">()</span>
+        
+        <span class="k">return</span> <span class="n">new_parameter</span></div>
+</div>
+
+        
+
+
+<span class="c1"># if __name__ == &quot;__main__&quot;:</span>
+
+
+<span class="c1">#     def mapRange(value, inMin=0, inMax=1, outMin=0.2, outMax=1.2):</span>
+<span class="c1">#         return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))</span>
+<span class="c1">#     # objective function</span>
+<span class="c1">#     def objective(x, noise_std=0.0):</span>
+<span class="c1">#         # define range for input</span>
+<span class="c1">#         # r_min, r_max = 0, 1.2</span>
+<span class="c1">#         x = mapRange(x/100)</span>
+<span class="c1">#         return 	 -(1.4 - 3.0 * x) * np.sin(18.0 * x) + noise_std * np.random.random(len(x))</span>
+<span class="c1">#     # BO = BayesianOptimization(range = np.array([-0.5 * np.pi, 2 * np.pi]))</span>
+<span class="c1">#     BO = BayesianOptimization(range = np.array([0, 100]), plot=True)</span>
+<span class="c1">#     x = np.random.random(3) * 100</span>
+
+<span class="c1">#     y = objective(x)</span>
+
+<span class="c1">#     x = x.reshape(-1,1)</span>
+<span class="c1">#     y = y.reshape(-1, 1)</span>
+    
+<span class="c1">#     full_x = np.linspace(0,100,100)</span>
+<span class="c1">#     full_y = objective(full_x)</span>
+
+<span class="c1">#     plt.plot(full_x, full_y)</span>
+<span class="c1">#     plt.plot(x,y, &#39;r*&#39;)</span>
+<span class="c1">#     plt.show()</span>
+
+
+<span class="c1">#     new_parameter = BO.run(x, y)</span>
+<span class="c1">#     # length_scale_store = []</span>
+<span class="c1">#     # output_scale_store = []</span>
+<span class="c1">#     # noise_scale_store = []</span>
+<span class="c1">#     for i in range(15):</span>
+<span class="c1">#         x = np.concatenate((x, new_parameter.reshape(1,1)))</span>
+
+<span class="c1">#         y = np.concatenate((y,objective(new_parameter).reshape(1,1)))</span>
+<span class="c1">#         new_parameter = BO.run(x,y)</span>
+<span class="c1">#         plt.pause(2)</span>
+    <span class="c1">#     plt.show()</span>
+    <span class="c1">#     # length_scale_store.append(BO.model.covar_module.base_kernel.lengthscale.detach().numpy().flatten())</span>
+    <span class="c1">#     # output_scale_store.append(BO.model.covar_module.outputscale.detach().numpy().flatten())</span>
+    <span class="c1">#     # noise_scale_store.append(BO.likelihood.noise.detach().numpy().flatten()</span>
+    <span class="c1">#     # )</span>
+    <span class="c1"># # x = np.linspace(-0.5 * np.pi, 2 * np.pi, 100)</span>
+    <span class="c1"># x = np.linspace(0, 100, 100)</span>
+    <span class="c1"># print(&#39;here&#39;)</span>
+    <span class="c1"># plt.figure()</span>
+    <span class="c1"># y = (np.sin(x/100)**3 + np.cos(x/100)**3) * 100</span>
+
+    <span class="c1"># plt.plot(x,y,&#39;r&#39;)</span>
+    <span class="c1"># plt.figure()</span>
+    <span class="c1"># plt.plot(length_scale_store, label=&#39;length scale&#39;)</span>
+    <span class="c1"># plt.plot(output_scale_store, label = &quot;sigma&quot;)</span>
+    <span class="c1"># plt.plot(noise_scale_store, label=&quot;noise&quot;)</span>
+    <span class="c1"># plt.legend()</span>
+    <span class="c1"># plt.show()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prakyath Kantharaju
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Prakyath Kantharaju.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

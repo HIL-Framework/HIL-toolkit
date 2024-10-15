@@ -18,32 +18,32 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=a1637f0b"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'HIL';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -124,6 +124,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="index.html">
   
@@ -139,7 +141,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -154,7 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modules/optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modules/cost-acquisition.html">Cost acquisition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Modules/cost-estimation.html">Cost estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modules/cost-estimation.html">Cost Estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modules/exo-communication.html">EXO Communication</a></li>
 </ul>
 
@@ -185,9 +187,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -265,10 +267,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -276,14 +278,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -327,7 +329,9 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="HIL.Exo_communication.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HIL.Exo_communication.html#module-HIL.Exo_communication.udp_communication">HIL.Exo_communication.udp_communication module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive"><code class="docutils literal notranslate"><span class="pre">UDPReceive</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive.receive"><code class="docutils literal notranslate"><span class="pre">UDPReceive.receive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive.close"><code class="docutils literal notranslate"><span class="pre">UDPReceive.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive.receive_pred"><code class="docutils literal notranslate"><span class="pre">UDPReceive.receive_pred()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPReceive.receive_stop"><code class="docutils literal notranslate"><span class="pre">UDPReceive.receive_stop()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="HIL.Exo_communication.html#HIL.Exo_communication.udp_communication.UDPSend"><code class="docutils literal notranslate"><span class="pre">UDPSend</span></code></a><ul>
@@ -347,7 +351,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="HIL.cost_acquisition.polar.html">HIL.cost_acquisition.polar package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="HIL.cost_acquisition.polar.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="HIL.cost_acquisition.polar.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="HIL.cost_acquisition.polar.html#hil-cost-acquisition-polar-polar-module">HIL.cost_acquisition.polar.polar module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HIL.cost_acquisition.polar.html#module-HIL.cost_acquisition.polar.polar">HIL.cost_acquisition.polar.polar module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="HIL.cost_acquisition.polar.html#module-HIL.cost_acquisition.polar">Module contents</a></li>
 </ul>
 </li>
@@ -360,13 +364,13 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="HIL.cost_processing.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="HIL.cost_processing.ECG.html">HIL.cost_processing.ECG package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="HIL.cost_processing.ECG.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="HIL.cost_processing.ECG.html#hil-cost-processing-ecg-rmssd-module">HIL.cost_processing.ECG.RMSSD module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HIL.cost_processing.ECG.html#module-HIL.cost_processing.ECG.RMSSD">HIL.cost_processing.ECG.RMSSD module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="HIL.cost_processing.ECG.html#module-HIL.cost_processing.ECG">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="HIL.cost_processing.metabolic_cost.html">HIL.cost_processing.metabolic_cost package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="HIL.cost_processing.metabolic_cost.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="HIL.cost_processing.metabolic_cost.html#hil-cost-processing-metabolic-cost-ppe-module">HIL.cost_processing.metabolic_cost.ppe module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HIL.cost_processing.metabolic_cost.html#module-HIL.cost_processing.metabolic_cost.ppe">HIL.cost_processing.metabolic_cost.ppe module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="HIL.cost_processing.metabolic_cost.html#module-HIL.cost_processing.metabolic_cost">Module contents</a></li>
 </ul>
 </li>
@@ -377,9 +381,33 @@ document.write(`
 </li>
 <li class="toctree-l1"><a class="reference internal" href="HIL.optimization.html">HIL.optimization package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="HIL.optimization.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HIL.optimization.html#hil-optimization-bo-module">HIL.optimization.BO module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HIL.optimization.html#hil-optimization-hil-module">HIL.optimization.HIL module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HIL.optimization.html#hil-optimization-extract-cost-module">HIL.optimization.extract_cost module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HIL.optimization.html#module-HIL.optimization.BO">HIL.optimization.BO module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.BO.BayesianOptimization"><code class="docutils literal notranslate"><span class="pre">BayesianOptimization</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.BO.BayesianOptimization.run"><code class="docutils literal notranslate"><span class="pre">BayesianOptimization.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HIL.optimization.html#module-HIL.optimization.HIL">HIL.optimization.HIL module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.HIL.HIL"><code class="docutils literal notranslate"><span class="pre">HIL</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.HIL.HIL.start_cli"><code class="docutils literal notranslate"><span class="pre">HIL.start_cli()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.HIL.STATE"><code class="docutils literal notranslate"><span class="pre">STATE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.HIL.STATE.DONE"><code class="docutils literal notranslate"><span class="pre">STATE.DONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.HIL.STATE.EXPLORATION"><code class="docutils literal notranslate"><span class="pre">STATE.EXPLORATION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.HIL.STATE.OPTIMIZATION"><code class="docutils literal notranslate"><span class="pre">STATE.OPTIMIZATION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HIL.optimization.html#module-HIL.optimization.extract_cost">HIL.optimization.extract_cost module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.extract_cost.ExtractCost"><code class="docutils literal notranslate"><span class="pre">ExtractCost</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.extract_cost.ExtractCost.extract_data"><code class="docutils literal notranslate"><span class="pre">ExtractCost.extract_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="HIL.optimization.html#module-HIL.optimization.kernel">HIL.optimization.kernel module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.kernel.Matern"><code class="docutils literal notranslate"><span class="pre">Matern</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.kernel.Matern.get_covr_module"><code class="docutils literal notranslate"><span class="pre">Matern.get_covr_module()</span></code></a></li>
@@ -393,6 +421,7 @@ document.write(`
 </li>
 <li class="toctree-l3"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.kernel.kernel"><code class="docutils literal notranslate"><span class="pre">kernel</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.kernel.kernel.get_covr_module"><code class="docutils literal notranslate"><span class="pre">kernel.get_covr_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="HIL.optimization.html#HIL.optimization.kernel.kernel.reset"><code class="docutils literal notranslate"><span class="pre">kernel.reset()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -402,7 +431,7 @@ document.write(`
 </li>
 <li class="toctree-l1"><a class="reference internal" href="HIL.plotting.html">HIL.plotting package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="HIL.plotting.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HIL.plotting.html#hil-plotting-realtime-module">HIL.plotting.realtime module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HIL.plotting.html#module-HIL.plotting.realtime">HIL.plotting.realtime module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HIL.plotting.html#module-HIL.plotting.utils">HIL.plotting.utils module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="HIL.plotting.html#HIL.plotting.utils.plot_elipses"><code class="docutils literal notranslate"><span class="pre">plot_elipses()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="HIL.plotting.html#HIL.plotting.utils.plot_mean_estimation"><code class="docutils literal notranslate"><span class="pre">plot_mean_estimation()</span></code></a></li>
@@ -496,8 +525,8 @@ By Prakyath Kantharaju
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
