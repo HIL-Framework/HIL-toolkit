@@ -1,32 +1,49 @@
-name: "Sphinx: Render docs"
+name: Build and Deploy Documentation
 
-on: push
+on:
+  push:
+    branches:
+      - main
+      - dev-release  # Ensures the workflow runs on both branches
+  pull_request:
+    branches:
+      - main
+      - dev-release
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
-    - name: Install dependencies
-      run: pip install -r docs/requirements.txt
-    - name: sphinx-apidoc
-      run: cd docs && sphinx-apidoc -o source/ ../HIL
-    - name: Build HTML
-      run: cd docs && make html
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: html-docs
-        path: docs/build/html/
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/build/html
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11  # Use your required Python version
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,docs]"
+
+      - name: Generate API Documentation
+        run: |
+          cd docs
+          sphinx-apidoc -o docs/source/ ../HIL/  # Generate documentation from ../HIL/
+          # Adjust paths as necessary
+
+      - name: Build Documentation
+        run: |
+          cd docs
+          make html
+      
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build/html  # Ensure this matches your Sphinx output directory
+      
+      - name: show deploy status and location
+        run: |
