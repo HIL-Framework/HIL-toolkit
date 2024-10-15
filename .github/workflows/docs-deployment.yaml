@@ -31,7 +31,6 @@ jobs:
         run: |
           cd docs
           sphinx-apidoc -o docs/source/ ../HIL/  # Generate documentation from ../HIL/
-          # Adjust paths as necessary
 
       - name: Build Documentation
         run: |
@@ -42,10 +41,10 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
+          publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/build/html  # Ensure this matches your Sphinx output directory
+          publish_dir: ./docs/build/html  
+          force_orphan: true
       
       - name: show deploy status and location
         run: |
-        
-          

@@ -12,6 +12,6 @@ def run():
     
         args = yaml.safe_load(open('configs/Met_config.yml','r'))
         hil = HIL(args)
-        hil.start()
+        hil.start_cli()
 
 run()

@@ -1,0 +1,11 @@
+sphinx
+sphinx-rtd-theme
+myst-parser
+sphinx-autodoc-typehints
+ipython
+sphinxemoji
+sphinx_copybutton
+myst_nb
+nbsphinx
+sphinx_book_theme
+

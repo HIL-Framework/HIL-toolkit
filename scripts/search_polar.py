@@ -7,7 +7,7 @@ async def run():
     info = {}
     devices = await BleakScanner.discover()
     for d in devices:
-        if 'H10' in d.name:
+        if d.name and 'H10' in d.name:
             print(d)
             info['address'] = d.address
             info['name'] = d.name

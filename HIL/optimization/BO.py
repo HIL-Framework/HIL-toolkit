@@ -1,8 +1,9 @@
 import math
 import os
 import torch
-from botorch.models import SingleTaskGP, FixedNoiseGP
-from botorch.fit import fit_gpytorch_model
+from torch.optim import Adam # type: ignore
+from botorch.models import SingleTaskGP
+# from botorch.fit import fit_gpytorch_model
 from gpytorch.mlls import ExactMarginalLogLikelihood
 from botorch.acquisition import ExpectedImprovement, qExpectedImprovement, qNoisyExpectedImprovement
 from botorch.acquisition.analytic import ProbabilityOfImprovement
@@ -32,7 +33,7 @@ class BayesianOptimization(object):
     Bayesian Optimization class for HIL
     """
     def __init__(self, n_parms:int = 1, range: np.ndarray = np.array([0,1]), noise_range :np.ndarray = np.array([0.005, 10]), acq: str = "ei",
-        Kernel: str = "SE", model_save_path : str = "", device : str = "cpu" , plot: bool = False, kernel_parms: Dict = {}) -> None:
+        kernel: str = "SE", model_save_path : str = "", device : str = "cpu" , plot: bool = False, kernel_parms: Dict = {}) -> None:
         """Bayesian optimization for HIL
 
         Args:
@@ -40,18 +41,25 @@ class BayesianOptimization(object):
             range (np.ndarray, optional): Range of the optimization parameters. Defaults to np.array([0,1]).
             noise_range (np.ndarray, optional): Range of noise contraints for optimization. Defaults to np.array([0.005, 10]).
             acq (str, optional): Selecting acquisition function, options are 'ei', 'pi'. Defaults to "ei".
-            Kernel (str, optional): Selecting kernel for the GP, options are "SE", "Matern". Defaults to "SE".
+            kernel (str, optional): Selecting kernel for the GP, options are "SE", "Matern". Defaults to "SE".
             model_save_path (str, optional): Path the new optimization saving directory. Defaults to "".
             device (str, optional): which device to perform optimization, "gpu", "cuda" or "cpu". Defaults to "cpu".
             plot (bool, optional): options to plot the gp and acquisition points. Defaults to False.
+            kernel_parms (Dict, optional): Dictionary of kernel parameters. Defaults to {}.
         """
         # TODO have an options of sending in the kernel parameters.
-        if Kernel == "SE":
-            self.kernel = SE()
+        if kernel == "SE":
+            if kernel_parms == {}:
+                self.kernel = SE(n_parms=n_parms)
+            else:
+                self.kernel = SE(**kernel_parms)
             self.covar_module = self.kernel.get_covr_module()
 
         else:
-            self.kernel = Matern()
+            if kernel_parms == {}:
+                self.kernel = Matern(n_parms=n_parms)
+            else:
+                self.kernel = Matern(**kernel_parms)
             self.covar_module = self.kernel.get_covr_module()
         
         self.n_parms = n_parms
@@ -131,9 +139,9 @@ class BayesianOptimization(object):
         """
            
         parameter = list(model.parameters()) + list(likelihood.parameters())
-        optimizer = torch.optim.Adam(parameter, lr=0.01) 
+        optimizer = Adam(parameter, lr=0.01) 
         mll= ExactMarginalLogLikelihood(likelihood, model).to(train_x)
-        
+         
 
         train_y=train_y.squeeze(-1)
         loss = -mll(model(train_x), train_y) #type: ignore
@@ -154,19 +162,15 @@ class BayesianOptimization(object):
         Returns:
             Tuple[torch.tensor, torch.tensor]: next parmaeter, value at the point
         """
-        # tradition method
-        # mll = ExactMarginalLogLikelihood(self.likelihood, self.model)
-        # fit_gpytorch_model(mll) # check I need to change anything
-        # using manual gradient descent using adam optimizer.
         self._training(self.model, self.likelihood, self.x, self.y)
 
         if self.acq_type == "ei":
-            acq = qNoisyExpectedImprovement(self.model, self.x, sampler=IIDNormalSampler(self.N_POINTS, seed = 1234)) #type: ignore
+            acq = qNoisyExpectedImprovement(self.model, self.x, sampler=IIDNormalSampler(torch.Size([self.N_POINTS]), seed=1234)) #type: ignore
         else:
             # TODO add other acquisition functions
             best_f = self._get_data_best()
-            acq = ProbabilityOfImprovement(self.model, best_f, sampler=IIDNormalSampler(self.N_POINTS, seed = 1234)) #type: ignore
-            pass
+            acq = ProbabilityOfImprovement(self.model, best_f, sampler=IIDNormalSampler(torch.Size([self.N_POINTS]), seed=1234)) #type: ignore
+
         new_point, value  = optimize_acqf(
             acq_function = acq,
             bounds=torch.tensor(self.range).to(self.device),
@@ -251,44 +255,44 @@ class BayesianOptimization(object):
         
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
 
-    def mapRange(value, inMin=0, inMax=1, outMin=0.2, outMax=1.2):
-        return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
-    # objective function
-    def objective(x, noise_std=0.0):
-        # define range for input
-        # r_min, r_max = 0, 1.2
-        x = mapRange(x/100)
-        return 	 -(1.4 - 3.0 * x) * np.sin(18.0 * x) + noise_std * np.random.random(len(x))
-    # BO = BayesianOptimization(range = np.array([-0.5 * np.pi, 2 * np.pi]))
-    BO = BayesianOptimization(range = np.array([0, 100]), plot=True)
-    x = np.random.random(3) * 100
+#     def mapRange(value, inMin=0, inMax=1, outMin=0.2, outMax=1.2):
+#         return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
+#     # objective function
+#     def objective(x, noise_std=0.0):
+#         # define range for input
+#         # r_min, r_max = 0, 1.2
+#         x = mapRange(x/100)
+#         return 	 -(1.4 - 3.0 * x) * np.sin(18.0 * x) + noise_std * np.random.random(len(x))
+#     # BO = BayesianOptimization(range = np.array([-0.5 * np.pi, 2 * np.pi]))
+#     BO = BayesianOptimization(range = np.array([0, 100]), plot=True)
+#     x = np.random.random(3) * 100
 
-    y = objective(x)
+#     y = objective(x)
 
-    x = x.reshape(-1,1)
-    y = y.reshape(-1, 1)
+#     x = x.reshape(-1,1)
+#     y = y.reshape(-1, 1)
     
-    full_x = np.linspace(0,100,100)
-    full_y = objective(full_x)
+#     full_x = np.linspace(0,100,100)
+#     full_y = objective(full_x)
 
-    plt.plot(full_x, full_y)
-    plt.plot(x,y, 'r*')
-    plt.show()
+#     plt.plot(full_x, full_y)
+#     plt.plot(x,y, 'r*')
+#     plt.show()
 
 
-    new_parameter = BO.run(x, y)
-    # length_scale_store = []
-    # output_scale_store = []
-    # noise_scale_store = []
-    for i in range(15):
-        x = np.concatenate((x, new_parameter.reshape(1,1)))
+#     new_parameter = BO.run(x, y)
+#     # length_scale_store = []
+#     # output_scale_store = []
+#     # noise_scale_store = []
+#     for i in range(15):
+#         x = np.concatenate((x, new_parameter.reshape(1,1)))
 
-        y = np.concatenate((y,objective(new_parameter).reshape(1,1)))
-        new_parameter = BO.run(x,y)
-        plt.pause(2)
+#         y = np.concatenate((y,objective(new_parameter).reshape(1,1)))
+#         new_parameter = BO.run(x,y)
+#         plt.pause(2)
     #     plt.show()
     #     # length_scale_store.append(BO.model.covar_module.base_kernel.lengthscale.detach().numpy().flatten())
     #     # output_scale_store.append(BO.model.covar_module.outputscale.detach().numpy().flatten())
