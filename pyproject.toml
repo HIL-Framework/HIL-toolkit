@@ -24,6 +24,9 @@ dependencies = [
     "botorch >= 0.8",
     "pylsl",
     "bleak",
+    "neurokit2",
+    "pyyaml",
+    "gmr",
 ]
 
 [project.optional-dependencies]

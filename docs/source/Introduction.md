@@ -18,9 +18,3 @@ Toolkit has following functionalities ( more added over time)
 4. Exoskeleton communication using UDP
 
 To setup the module please follow the [Install/setup](Setup.md)
-
-
-#TODO
-- Add information of the optimization.
-- Add information about the cost acquisition.
-- Add information the cost processing.
