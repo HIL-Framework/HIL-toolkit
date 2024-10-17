@@ -47,7 +47,6 @@ class BayesianOptimization(object):
             plot (bool, optional): options to plot the gp and acquisition points. Defaults to False.
             kernel_parms (Dict, optional): Dictionary of kernel parameters. Defaults to {}.
         """
-        # TODO have an options of sending in the kernel parameters.
         if kernel == "SE":
             if kernel_parms == {}:
                 self.kernel = SE(n_parms=n_parms)
@@ -113,8 +112,6 @@ class BayesianOptimization(object):
 
         self._save_model()
 
-        if self.PLOT:
-            self._plot()
 
         return new_parameter
 
@@ -181,29 +178,6 @@ class BayesianOptimization(object):
         )
         return new_point, value
 
-    # Temp function will be replaced is some way
-    def _plot(self) -> None:
-        plt.cla()
-        x = self.x.detach().numpy()
-        y = self.y.detach().numpy()
-        plt.plot(x, y, 'r.', ms = 10)
-        x_torch = torch.tensor(x).to(self.device)
-        y_torch = torch.tensor(y).to(self.device)
-        self.model.eval()  #type: ignore
-        self.likelihood.eval()
-        with torch.no_grad():
-            x_length = np.linspace(self.range[0,0],self.range[1,0],100).reshape(-1, 1)
-            # print(x_length,self.range)
-            observed = self.likelihood(self.model(torch.tensor(x_length))) #type: ignore
-            observed_mean = observed.mean.cpu().numpy() #type: ignore
-            upper, lower = observed.confidence_region() #type: ignore
-            # x_length = x_length.cpu().numpy()
-            
-        plt.plot(x_length.flatten(), observed_mean)
-        plt.fill_between(x_length.flatten(), lower.cpu().numpy(), upper.cpu().numpy(), alpha=0.2)
-        plt.legend(['Observed Data', 'mean', 'Confidence'])
-        plt.pause(0.01)
-
     def _save_model(self) -> None:
         """Save the model and data in the given path
         """
@@ -254,60 +228,3 @@ class BayesianOptimization(object):
         return new_parameter
         
 
-
-# if __name__ == "__main__":
-
-
-#     def mapRange(value, inMin=0, inMax=1, outMin=0.2, outMax=1.2):
-#         return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
-#     # objective function
-#     def objective(x, noise_std=0.0):
-#         # define range for input
-#         # r_min, r_max = 0, 1.2
-#         x = mapRange(x/100)
-#         return 	 -(1.4 - 3.0 * x) * np.sin(18.0 * x) + noise_std * np.random.random(len(x))
-#     # BO = BayesianOptimization(range = np.array([-0.5 * np.pi, 2 * np.pi]))
-#     BO = BayesianOptimization(range = np.array([0, 100]), plot=True)
-#     x = np.random.random(3) * 100
-
-#     y = objective(x)
-
-#     x = x.reshape(-1,1)
-#     y = y.reshape(-1, 1)
-    
-#     full_x = np.linspace(0,100,100)
-#     full_y = objective(full_x)
-
-#     plt.plot(full_x, full_y)
-#     plt.plot(x,y, 'r*')
-#     plt.show()
-
-
-#     new_parameter = BO.run(x, y)
-#     # length_scale_store = []
-#     # output_scale_store = []
-#     # noise_scale_store = []
-#     for i in range(15):
-#         x = np.concatenate((x, new_parameter.reshape(1,1)))
-
-#         y = np.concatenate((y,objective(new_parameter).reshape(1,1)))
-#         new_parameter = BO.run(x,y)
-#         plt.pause(2)
-    #     plt.show()
-    #     # length_scale_store.append(BO.model.covar_module.base_kernel.lengthscale.detach().numpy().flatten())
-    #     # output_scale_store.append(BO.model.covar_module.outputscale.detach().numpy().flatten())
-    #     # noise_scale_store.append(BO.likelihood.noise.detach().numpy().flatten()
-    #     # )
-    # # x = np.linspace(-0.5 * np.pi, 2 * np.pi, 100)
-    # x = np.linspace(0, 100, 100)
-    # print('here')
-    # plt.figure()
-    # y = (np.sin(x/100)**3 + np.cos(x/100)**3) * 100
-
-    # plt.plot(x,y,'r')
-    # plt.figure()
-    # plt.plot(length_scale_store, label='length scale')
-    # plt.plot(output_scale_store, label = "sigma")
-    # plt.plot(noise_scale_store, label="noise")
-    # plt.legend()
-    # plt.show()
