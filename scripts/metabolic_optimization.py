@@ -5,13 +5,15 @@ import yaml
 
 # HIL toolbox import
 
-from HIL.optimization.HIL import HIL
+from HIL.optimization.HIL.HIL_CLI import HIL_CLI
 
 
 def run():
     
         args = yaml.safe_load(open('configs/Met_config.yml','r'))
-        hil = HIL(args)
-        hil.start_cli()
+        hil = HIL_CLI(args)
+        hil.start()
 
-run()
+
+if __name__ == "__main__":
+    run()

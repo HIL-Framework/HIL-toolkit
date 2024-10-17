@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import MagicMock, patch
-from HIL.optimization.HIL import HIL
+from HIL.optimization.HIL.HIL_CLI import HIL_CLI
 
 @pytest.fixture
 def args():
@@ -58,4 +58,4 @@ def mock_stream_outlet(args):
 
 @pytest.fixture
 def hil_instance(args, mock_resolve_streams, mock_stream_inlet, mock_stream_outlet):
-    return HIL(args)
+    return HIL_CLI(args)

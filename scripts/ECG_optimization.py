@@ -1,6 +1,6 @@
 import yaml
 import argparse
-from HIL.optimization.HIL import HIL
+from HIL.optimization.HIL.HIL_CLI import HIL_CLI
 
 def run():
     # Set up argument parser
@@ -16,8 +16,8 @@ def run():
         config = yaml.safe_load(config_file)
     
     # Initialize HIL with loaded configuration
-    hil = HIL(config)
-    hil.start_cli()
+    hil = HIL_CLI(config)
+    hil.start()
 
 if __name__ == "__main__":
     run()

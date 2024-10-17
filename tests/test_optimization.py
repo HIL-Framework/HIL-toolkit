@@ -1,5 +1,5 @@
 from unittest.mock import Mock, patch
-from HIL.optimization.HIL import STATE
+from HIL.optimization.HIL.HIL_CLI import STATE, HIL_CLI
 import warnings
 # Add these lines at the top of your test file
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -16,7 +16,7 @@ def test_start_positive(hil_instance):
     with patch('builtins.input', input_mock):
         
         # Run the start method
-        hil_instance.start_cli()
+        hil_instance.start()
 
     # Add assertions to check the final state of hil_instance
     assert hil_instance.n == hil_instance.args['Optimization']['n_steps'], f"Expected {hil_instance.args['Optimization']['n_steps']} iterations, but got {hil_instance.n}"
@@ -30,7 +30,7 @@ def test_start_negative(hil_instance):
     # Mock the extract_data method to return only two values
     hil_instance.cost.extract_data = Mock(return_value=([0.5], 1234))
     with patch('builtins.input', input_mock):
-        hil_instance.start_cli()
+        hil_instance.start()
 
     # Assert that the optimization completed successfully, but with one rejected measurement
     assert hil_instance.n == hil_instance.args['Optimization']['n_steps']

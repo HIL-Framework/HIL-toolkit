@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import MagicMock, patch
-from HIL.optimization.HIL import HIL
+from HIL.optimization.HIL.HIL_CLI import HIL_CLI
 
 # @pytest.fixture
 # def args():
@@ -55,25 +55,25 @@ from HIL.optimization.HIL import HIL
 
 def test_HIL_initialization(args):
     with pytest.raises(Exception) as e:
-        hil = HIL(args)
+        hil = HIL_CLI(args)
     assert str(e.value) == "Cost function not found"
 
 def test_HIL_stream_mocking(mock_stream_inlet, mock_resolve_streams, args):
-    hil = HIL(args)
+    hil = HIL_CLI(args)
     assert hil.n == 0
 
 def test_outlet_cost(mock_stream_inlet, mock_resolve_streams, mock_stream_outlet, args):
-    hil = HIL(args)
+    hil = HIL_CLI(args)
     assert hasattr(hil, 'outlet')
 
 def test_reset_data_collection(mock_stream_inlet, mock_resolve_streams, mock_stream_outlet, args):
-    hil = HIL(args)
+    hil = HIL_CLI(args)
     assert hil.store_cost_data == []
     assert hil.cost_time == 0
     assert hil.start_time == 0
 
 def test_start_optimization(mock_stream_inlet, mock_resolve_streams, mock_stream_outlet, args):
-    hil = HIL(args)
+    hil = HIL_CLI(args)
     assert hil.BO.n_parms == args['Optimization']['n_parms']
     assert hil.BO.kernel.n_parms == args['Optimization']['n_parms']
     assert hasattr(hil.BO.kernel, 'covar_module')
@@ -83,7 +83,7 @@ def test_start_optimization(mock_stream_inlet, mock_resolve_streams, mock_stream
 
 def test_change_kernel(mock_stream_inlet, mock_resolve_streams, mock_stream_outlet, args):
     args['Optimization']['kernel_function'] = 'Matern'
-    hil = HIL(args)
+    hil = HIL_CLI(args)
     assert hil.BO.kernel.n_parms == args['Optimization']['n_parms']
     assert hasattr(hil.BO.kernel, 'covar_module')
     assert hasattr(hil.BO.kernel, 'length_scale_constraints')
@@ -94,7 +94,7 @@ def test_change_kernel(mock_stream_inlet, mock_resolve_streams, mock_stream_outl
 def test_empty_kernel_parms(mock_stream_inlet, mock_resolve_streams, mock_stream_outlet, args):
     args['Optimization']['kernel_function'] = 'Matern'
     args['Optimization']['kernel_parms'] = {}
-    hil = HIL(args)
+    hil = HIL_CLI(args)
     assert hil.BO.kernel.n_parms == args['Optimization']['n_parms']
     assert hasattr(hil.BO.kernel, 'covar_module')
     assert hasattr(hil.BO.kernel, 'length_scale_constraints')
@@ -103,7 +103,7 @@ def test_empty_kernel_parms(mock_stream_inlet, mock_resolve_streams, mock_stream
 
     args['Optimization']['kernel_function'] = 'SE'
     args['Optimization']['kernel_parms'] = {}
-    hil = HIL(args)
+    hil = HIL_CLI(args)
     assert hil.BO.kernel.n_parms == args['Optimization']['n_parms']
     assert hasattr(hil.BO.kernel, 'covar_module')
     assert hasattr(hil.BO.kernel, 'length_scale_constraints')
@@ -112,7 +112,7 @@ def test_empty_kernel_parms(mock_stream_inlet, mock_resolve_streams, mock_stream
 
 def test_no_model_save_path(mock_stream_inlet, mock_resolve_streams, mock_stream_outlet, args):
     args['Optimization']['model_save_path'] = ""
-    hil = HIL(args)
+    hil = HIL_CLI(args)
     assert hil.BO.model_save_path == "tmp_data/"
 
 # def test_reset_data_collection(args):

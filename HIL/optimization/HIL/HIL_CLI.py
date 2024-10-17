@@ -6,15 +6,12 @@ import logging
 
 from HIL.optimization.BO import BayesianOptimization
 from HIL.optimization.extract_cost import ExtractCost
+from HIL.optimization.HIL.HIL import STATE, HIL_MODE
 
 
-class STATE(Enum):
-    EXPLORATION = 1
-    OPTIMIZATION = 2
-    DONE = 3
 
 
-class HIL:
+class HIL_CLI:
     """ Main HIL optimization
         This program will extract cost from the pylsl stream.
         Run the optimization.
@@ -27,6 +24,12 @@ class HIL:
         self.x = np.array([]) # input parameter for the exoskeleton
         self.y = np.array([]) # cost function
         self.args = args
+        if args['mode'] == 'CLI':
+            self.mode = HIL_MODE.CLI
+        elif args['mode'] == 'API':
+            self.mode = HIL_MODE.API
+        else:
+            raise ValueError(f"Mode {args['mode']} is not supported")
 
         # start the
         self.start_time = 0 
@@ -118,7 +121,7 @@ class HIL:
         self.x = np.concatenate((self.x, new_parameter.reshape(1,)), axis = 0)
         self.outlet.push_sample([self.x_opt[-1],self.y_opt[-1]])
 
-    def start_cli(self):
+    def start(self):
         if self.n == 0:
             print(f'############################################################')
             print(f'############## Starting the optimization ###################')
