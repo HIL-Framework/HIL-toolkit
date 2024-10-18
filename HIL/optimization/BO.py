@@ -33,7 +33,7 @@ class BayesianOptimization(object):
     Bayesian Optimization class for HIL
     """
     def __init__(self, n_parms:int = 1, range: np.ndarray = np.array([0,1]), noise_range :np.ndarray = np.array([0.005, 10]), acq: str = "ei",
-        kernel: str = "SE", model_save_path : str = "", device : str = "cpu" , plot: bool = False, kernel_parms: Dict = {}) -> None:
+        kernel: str = "SE", model_save_path : str = "", device : str = "cpu" , plot: bool = False, save: bool = True, kernel_parms: Dict = {}) -> None:
         """Bayesian optimization for HIL
 
         Args:
@@ -64,15 +64,12 @@ class BayesianOptimization(object):
         
         self.n_parms = n_parms
         self.range = range.reshape(2,self.n_parms).astype(float)
-        
-        if len(model_save_path):
-            self.model_save_path = model_save_path
+        self.SAVE = save
+        if self.SAVE and len(model_save_path):
+                self.model_save_path = model_save_path
         else:
             # this is temp
             self.model_save_path = "tmp_data/"
-
-        
-
         # place holder for model
         self.model = None
 
@@ -132,26 +129,20 @@ class BayesianOptimization(object):
         return torch.max(output).detach().numpy() #type: ignore
 
     def _training(self, model, likelihood,train_x,train_y):
-
         """
         Train the model using Adam Optimizer and gradient descent
         Log Marginal Likelihood is used as the cost function
         """
-           
         parameter = list(model.parameters()) + list(likelihood.parameters())
         optimizer = Adam(parameter, lr=0.01) 
         mll= ExactMarginalLogLikelihood(likelihood, model).to(train_x)
-         
-
         train_y=train_y.squeeze(-1)
         loss = -mll(model(train_x), train_y) #type: ignore
         self.logger.info("before training Loss: ", loss.item())
         for i in range(500):
-            
             optimizer.zero_grad()
             output = model(train_x)
             loss = -mll(output, train_y) #type: ignore
-            
             loss.backward()
             optimizer.step()
         self.logger.info("after training Loss: ", loss.item()) 
@@ -240,7 +231,6 @@ class BayesianOptimization(object):
             self.kernel.reset()
             self.likelihood = GaussianLikelihood(noise_constraint = Interval(self._noise_constraints[0], self._noise_constraints[1]))
             self.model = SingleTaskGP(self.x, self.y, likelihood = self.likelihood, covar_module = self.kernel.get_covr_module()) 
-            # TODO check if this ok for multi dimension models
             self.model.to(self.device)
 
         else:
