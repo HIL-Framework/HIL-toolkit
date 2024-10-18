@@ -1,9 +1,9 @@
 import numpy as np
 import time 
 import pylsl
-from enum import Enum
 import logging
 
+from HIL.optimization.HIL.HIL import HIL_base
 from HIL.optimization.BO import BayesianOptimization
 from HIL.optimization.extract_cost import ExtractCost
 from HIL.optimization.HIL.HIL import STATE, HIL_MODE
@@ -11,7 +11,7 @@ from HIL.optimization.HIL.HIL import STATE, HIL_MODE
 
 
 
-class HIL_CLI:
+class HIL_CLI(HIL_base):
     """ Main HIL optimization
         This program will extract cost from the pylsl stream.
         Run the optimization.
@@ -20,47 +20,15 @@ class HIL_CLI:
     def __init__(self, args: dict) -> None:
         """ cost_name: name of the cost function.
         """
-        self.n = int(0) # number of optimization
-        self.x = np.array([]) # input parameter for the exoskeleton
-        self.y = np.array([]) # cost function
-        self.args = args
-        if args['mode'] == 'CLI':
-            self.mode = HIL_MODE.CLI
-        elif args['mode'] == 'API':
-            self.mode = HIL_MODE.API
-        else:
-            raise ValueError(f"Mode {args['mode']} is not supported")
-
-        # start the
-        self.start_time = 0 
-
+        super().__init__(args)
+        self.mode = HIL_MODE.CLI
         self._outlet_cost()
-
         self._reset_data_collection()
-
-
-        # start optimization
-        self._start_optimization(self.args['Optimization'])
-
-        # start cost function
+        # Initialize the optimization
+        self._init_opt(self.args['Optimization'])
+        # Initialize the cost function
         self._start_cost(self.args['Cost'])
-
-        # self.warm_up
-        self.warm_up = True
-
-        # start optimization
-        self.OPTIMIZATION = False
-
-        # The ones which are done. 
-        self.x_opt = np.array([])
-        self.y_opt = np.array([])
-
-        # state
-        self.STATE = STATE.EXPLORATION
-
         # Consider time 
-        self.TIME_BASED = args['time_based']
-
         self.logger = logging.getLogger(__name__)
     
     def _outlet_cost(self) -> None:
@@ -69,22 +37,13 @@ class HIL_CLI:
         info = pylsl.StreamInfo(name="Change_parm", type="Marker", channel_count=2, source_id='12345')
         self.outlet = pylsl.StreamOutlet(info)
 
-    def _reset_data_collection(self)  -> None:
-        """Reset data collection and restart the clocks
-        """
-        self.store_cost_data = []
-        self.cost_time = 0
-        self.start_time = 0
 
-    def _start_optimization(self, args: dict) -> None:
-        """O Start the optimization function, this will start the BO module
+    def _init_opt(self, args: dict) -> None:
+        """Start the optimization function, this will start the BO module
 
         Args:
             args (dict): Optimization args
         """
-        # print(args['range'][0], args['range'][1])
-        # print(np.array(list(args['range'])))
-        # print(args['kernel_parms'])
         self.BO = BayesianOptimization(n_parms=args['n_parms'], 
                 range=np.array(list(args['range'])), 
                 model_save_path=args['model_save_path'], 
@@ -138,9 +97,9 @@ class HIL_CLI:
                 print(f"{self.n=}, {self.x=} iteration")
                 self.logger.info(f"In the exploration step {self.n}, parameter {self.x[self.n]}, len_cost {len(self.store_cost_data)}")
                 
-                if self.n == 0 and self.warm_up:
+                if self.n == 0 and self.WARM_UP:
                     input(f"Please give 2 min of warmup and hit any key to continue \n")
-                    self.warm_up = False
+                    self.WARM_UP = False
                 self._get_cost()
                 if self._check_time_based and self._check_cost_based:
                     print(f" cost is {np.nanmean(self.store_cost_data[-self.args['Cost']['n_samples']:])}")

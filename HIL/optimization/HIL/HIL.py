@@ -1,5 +1,6 @@
 from enum import Enum
 from abc import ABC, abstractmethod
+import numpy as np
 
 
 class STATE(Enum):
@@ -22,24 +23,29 @@ class HIL_base(ABC):
     """
     def __init__(self, args: dict) -> None:
         self.args = args
-
-
-    @abstractmethod
-    def _reset_data_collection(self):
-        raise NotImplementedError("This method must be implemented in the subclass")
-
-    @abstractmethod
-    def _outlet_cost(self):
-        raise NotImplementedError("This method must be implemented in the subclass")
-    
-
-    @abstractmethod
-    def _start_optimization(self):
-        raise NotImplementedError("This method must be implemented in the subclass")
-
+        # Optimization variables.
+        self.n = int(0) # number of optimization
+        self.x = np.array([]) # input parameter for the exoskeleton
+        self.y = np.array([]) # cost function
+        self.args = args
+        self.start_time = 0
+        self.WARM_UP = True
+        self.x_opt = np.array([])
+        self.y_opt = np.array([])
+        # Setting the FLAGs and the state.
+        self.OPTIMIZATION = False
+        self.STATE = STATE.EXPLORATION
+        self.TIME_BASED = args['time_based']
 
     @abstractmethod
-    def start(self):
-        raise NotImplementedError("This method must be implemented in the subclass")
+    def _reset_data_collection(self) -> None:
+        """Reset the data collection and restart the clocks
+        """
+        self.store_cost_data = []
+        self.cost_time = 0
+        self.start_time = 0
 
+    @abstractmethod
+    def _init_opt(self):
+        raise NotImplementedError("This method must be implemented in the subclass")
 
