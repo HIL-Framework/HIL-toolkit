@@ -142,7 +142,7 @@ class BayesianOptimization(object):
         """Using the model and likelihood select the next data point to get next data points and acq value at that point
 
         Returns:
-            Tuple[torch.tensor, torch.tensor]: next parmaeter, value at the point
+            Tuple[torch.Tensor, torch.Tensor]: next parameter, value at the point
         """
         self._training(self.model, self.likelihood, self.x, self.y)
 
@@ -153,10 +153,10 @@ class BayesianOptimization(object):
             best_f = self._get_data_best()
             acq = ProbabilityOfImprovement(self.model, best_f, sampler=IIDNormalSampler(torch.Size([self.N_POINTS]), seed=1234)) #type: ignore
 
-        new_point, value  = optimize_acqf(
-            acq_function = acq,
-            bounds=torch.tensor(self.range).to(self.device),
-            q = 1,
+        new_point, value = optimize_acqf(
+            acq_function=acq,
+            bounds=torch.tensor(self.range, dtype=torch.float32).to(self.device),
+            q=1,
             num_restarts=1000,
             raw_samples=2000,
             options={},
@@ -177,40 +177,37 @@ class BayesianOptimization(object):
         np.savetxt(data_save, full_data)
         self.logger.info(f"model saved successfully at {save_iter_path}")
 
-    def run(self, x: np.ndarray, y: np.ndarray, reload_hyper: bool  = False ) -> np.ndarray:
+    def run(self, x: np.ndarray, y: np.ndarray, reload_hyper: bool = False) -> np.ndarray:
         """Run the optimization with input data points
 
         Args:
             x (NxM np.ndarray): Input parameters N -> n_parms, M -> iter
             y (Mx1): Cost function array
-            reload_hyper (bool, optional): Reload the hyper parameter trained in the previous iter. Defaults to True.
+            reload_hyper (bool, optional): Reload the hyper parameter trained in the previous iter. Defaults to False.
 
         Returns:
             np.ndarray: parameter to sample next
         """
-
-        
         assert len(x) == len(y), "Length should be equal."
 
-        self.x = torch.tensor(x).to(self.device)
-        self.y = torch.tensor(y).to(self.device)
+        # Convert input to float32 and move to device
+        self.x = torch.tensor(x, dtype=torch.float32).to(self.device)
+        self.y = torch.tensor(y, dtype=torch.float32).to(self.device)
 
         if not reload_hyper:
             self.kernel.reset()
-            self.likelihood = GaussianLikelihood(noise_constraint = Interval(self._noise_constraints[0], self._noise_constraints[1]))
-            self.model = SingleTaskGP(self.x, self.y, likelihood = self.likelihood, covar_module = self.kernel.get_covr_module()) 
-            self.model.to(self.device)
-
+            self.likelihood = GaussianLikelihood(noise_constraint=Interval(self._noise_constraints[0], self._noise_constraints[1]))
+            self.model = SingleTaskGP(self.x, self.y, likelihood=self.likelihood, covar_module=self.kernel.get_covr_module())
         else:
-            # keeping the likehood save and kernel parameters so no need to reset those
-            self.model = SingleTaskGP(self.x, self.y, likelihood = self.likelihood, covar_module = self.kernel.get_covr_module())
-            self.model.to(self.device)
+            # keeping the likelihood and kernel parameters so no need to reset those
+            self.model = SingleTaskGP(self.x, self.y, likelihood=self.likelihood, covar_module=self.kernel.get_covr_module())
 
-        # fi the model and get the next parameter.
+        self.model.to(self.device)
+
+        # fit the model and get the next parameter
         new_parameter = self._step()
         
         return new_parameter
-        
 
 
 # if __name__ == "__main__":
@@ -269,3 +266,5 @@ class BayesianOptimization(object):
     # plt.plot(noise_scale_store, label="noise")
     # plt.legend()
     # plt.show()
+
+

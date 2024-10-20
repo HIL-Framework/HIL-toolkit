@@ -2,6 +2,7 @@ import fastapi
 import yaml
 from HIL.optimization.HIL.HIL_API import HIL_API
 from .pydantic_models import OptimizeSessionInput, OptimizeInput
+import numpy as np
 
 class HILApp:
     def __init__(self, config_path: str):
@@ -39,7 +40,9 @@ class HILApp:
             input_data.parameters,
             input_data.costs
         )
-        return {"optimization_parameters": optimization_params}
+        print(f"optimization_params: {optimization_params}")
+        print(f"type of optimization_params: {type(optimization_params)}")
+        return {"optimization_parameters": optimization_params.tolist()[0]}
 
 def get_app(config_path: str):
     hil_app = HILApp(config_path)

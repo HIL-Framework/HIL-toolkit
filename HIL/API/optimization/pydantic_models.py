@@ -8,5 +8,5 @@ class OptimizeSessionInput(BaseModel):
     cost: float
 
 class OptimizeInput(BaseModel):
-    parameters: List[float]
-    costs: List[float]
+    parameters: List[List[float]]
+    costs: List[List[float]]

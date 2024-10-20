@@ -44,6 +44,9 @@ class HIL_API(HIL_base):
 
     def optimize(self, parameters, costs, reload_hyper: bool = False) -> np.ndarray:
         self._init_opt()
-        new_parameter = self.opt_framework.run(x = parameters, y = costs, reload_hyper = reload_hyper)
+        # Convert parameters and costs to float32
+        parameters = np.array(parameters, dtype=np.float32)
+        costs = np.array(costs, dtype=np.float32)
+        new_parameter = self.opt_framework.run(x=parameters, y=costs, reload_hyper=reload_hyper)
         return new_parameter
         

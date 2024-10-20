@@ -10,12 +10,10 @@ Optimization:
   model_save_path: "models/"
   device: "cuda"
   acquisition: 'qei'
-  kernel_function: 'se'
+  kernel_function: 'SE'
   GP: "Regular"
   kernel_parms:
     n_parms: 1
-    length_scale: [1, 1]
-    variance_constraints: [1, 1]
   save: true
   time_based: false
 
