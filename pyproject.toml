@@ -27,6 +27,7 @@ dependencies = [
     "neurokit2",
     "pyyaml",
     "gmr",
+    "fastapi",
 ]
 
 [project.optional-dependencies]

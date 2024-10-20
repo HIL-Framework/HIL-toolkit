@@ -37,7 +37,6 @@ class HIL_base(ABC):
         self.STATE = STATE.EXPLORATION
         self.TIME_BASED = args['time_based']
 
-    @abstractmethod
     def _reset_data_collection(self) -> None:
         """Reset the data collection and restart the clocks
         """

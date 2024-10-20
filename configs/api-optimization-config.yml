@@ -1,0 +1,28 @@
+Cost:
+  Name: "ECG_processed"
+  max_samples_per_cost: 5
+  time_step: 1
+
+Optimization:
+  n_parms: 1
+  n_steps: 15
+  range: [0, 85]
+  model_save_path: "models/"
+  device: "cuda"
+  acquisition: 'qei'
+  kernel_function: 'se'
+  GP: "Regular"
+  kernel_parms:
+    n_parms: 1
+    length_scale: [1, 1]
+    variance_constraints: [1, 1]
+  save: true
+  time_based: false
+
+API:
+  host: "0.0.0.0"
+  port: 8000
+
+Exoskeleton: 
+  port: 5555
+  ip: "localhost"
