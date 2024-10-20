@@ -28,6 +28,7 @@ dependencies = [
     "pyyaml",
     "gmr",
     "fastapi",
+    "uvicorn",
 ]
 
 [project.optional-dependencies]
